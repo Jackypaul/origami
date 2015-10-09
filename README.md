@@ -7,16 +7,16 @@ incompatible type systems in object-oriented programming languages.
 
 #####**WHY USE ORIGAMI ORM ?**
 
-  * Security : 
+  * **Security** : 
       Origami can encoding file in base64 and encrypting adress (certified eTrust).
   
-  * Lighter than others :
+  * **Lighter than others** :
       Origami only use essential package.
 
-  * Friendly use :
+  * **Friendly use** :
       Easy and better understand.
       
 
-  * Model Generator :
+  * **Model Generator** :
       Model Generator is a controller who create automatically your entity, you don't need to create them manually
                                   
