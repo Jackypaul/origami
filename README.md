@@ -46,4 +46,29 @@ incompatible type systems in object-oriented programming languages.
     }
     
     ```
+    
+    * **Add** :
+     Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
+     
+     ```
+     public function add()
+    {
+        \Origami\DB::get('test')->trans_start();
+
+        $user = new \Entity\test\user();
+        $user->firstname = 'John';
+        $user->lastname = 'Do';
+        $user->password = sha1('JohnDo');
+        $user->birth = new DateTime('17-04-1984');
+        $user->dateinsert = new DateTime();
+        $user->dateupdate = new DateTime();
+        $user->save();
+        
+        \Origami\DB::get('test')->trans_complete();
+        
+        return \Origami\DB::get('test')->trans_status();
+    }
+    ```
+    
+     
  
