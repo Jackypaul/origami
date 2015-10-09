@@ -46,7 +46,6 @@ incompatible type systems in object-oriented programming languages.
     }
     
     ```
-    
  * **Add** :
      Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
      
@@ -69,6 +68,36 @@ incompatible type systems in object-oriented programming languages.
         return \Origami\DB::get('test')->trans_status();
     }
     ```
-    
+ * **Add_user_address** : 
+ the find_one() is use to get one user_id.
+   
+   ```
+   public function add_user_address()
+    {
+        $user = \Entity\test\user::find_one();
+
+        $address = new \Entity\test\address();
+        $address->user_id = $user->id;
+        $address->street = '1 Promenade des Anglais';
+        
+        return $address->save();
+    }
+    ```
+ * **Add_user_file** :
+  In this exemple, the png file is encoding in base64.
+
+```
+     public function add_user_file()
+    {
+        $user = \Entity\test\user::find_one();
+
+        $file = new \Entity\test\file();
+        $file->user_id = $user->id;
+        $file->type = 'png';
+        $file->content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
+
+        return $file->save();
+    }
+    ```
      
  
