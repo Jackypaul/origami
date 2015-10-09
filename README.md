@@ -20,14 +20,30 @@ incompatible type systems in object-oriented programming languages.
   * **Model Generator** :
       Model Generator is a controller who create automatically your entity, you don't need to create them manually
                                   
-
+----------
  
 ###Model
  
 
 
 
- ------------
- |Dependence|
- ------------
+* **Dependence** :
+    a few exemple of library dependance for origami in construct function.
+
+ ```
+     function __construct()
+    {
+        parent::__construct();
+
+        // Dépendance
+        $this->load->library('origami', array(
+            'entity_autoload' => TRUE,
+            'entity_path' => APPPATH.'third_party/origami/models/Entity',
+            'binary_enable' => TRUE,
+            'encryption_enable' => TRUE,
+            'encryption_key' => bin2hex('Origami')
+        ));
+    }
+    
+    ```
  
