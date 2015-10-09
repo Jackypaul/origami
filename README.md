@@ -28,7 +28,7 @@ incompatible type systems in object-oriented programming languages.
 
 
 - **Dependence** :
-a few exemple of library dependance for origami in construct function.
+*a few exemple of library dependance for origami in construct function.*
 
 ```
      function __construct()
@@ -47,7 +47,7 @@ a few exemple of library dependance for origami in construct function.
     
 ```
 - **Add** :
-Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
+*Origami return the state (trans_status) during the "get" and cancel it if any error occurs.*
      
 ```
      public function add()
@@ -69,7 +69,7 @@ Origami return the state (trans_status) during the "get" and cancel it if any er
     }
 ```
 - **Add_user_address** : 
- the find_one() is use to get one user_id.
+ *the find_one() is use to get one user_id.*
    
 ```
    public function add_user_address()
@@ -85,7 +85,7 @@ Origami return the state (trans_status) during the "get" and cancel it if any er
 ```
 
 - **Add_user_file** :
-  In this exemple, the png file is encoding in base64.
+  *In this exemple, the png file is encoding in base64.*
 
 ```
      public function add_user_file()
@@ -102,7 +102,7 @@ Origami return the state (trans_status) during the "get" and cancel it if any er
 ```
  
 - **Get** :
- the get function use find_one() and return the variable in a array
+ *the get function use find_one() and return the variable in a array.*
 
 ```
   public function get()
@@ -115,7 +115,7 @@ Origami return the state (trans_status) during the "get" and cancel it if any er
 ```
  
 - **get_join** :
- You can join some entity.
+ *You can join some entity.*
 
 ```
    public function get_join()
@@ -153,7 +153,7 @@ Origami return the state (trans_status) during the "get" and cancel it if any er
     }
  ```
 - **set** :
-In this exemple the set function find the firstname of the user table in the Entity and save it
+*In this exemple the set function find the firstname of the user table in the Entity and save it.*
 ```
     public function set()
     {
@@ -164,7 +164,7 @@ In this exemple the set function find the firstname of the user table in the Ent
     }
  ```
  - **Del** :
-The function del remove the table.
+*The function del remove the table.*
   
 ```
     public function del()
