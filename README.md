@@ -20,3 +20,14 @@ incompatible type systems in object-oriented programming languages.
   * **Model Generator** :
       Model Generator is a controller who create automatically your entity, you don't need to create them manually
                                   
+
+ 
+###Model
+ 
+
+
+
+ ------------
+ |Dependence|
+ ------------
+ 
