@@ -174,5 +174,78 @@ incompatible type systems in object-oriented programming languages.
         return $user->remove();
     }
 ```
+----------------
+##Controller
+
+- **index** :
+*A exemple of a basic controller with function index using origami model*
+
+```
+ class Origami_test extends CI_Controller
+{
+
+    public function __construct()
+    {
+        parent::__construct();
+        
+        // Dépendances
+        $this->load->library('unit_test');
+        
+        $this->load->add_package_path(APPPATH.'third_party/origami');
+        $this->load->model('test_model');
+        $this->load->remove_package_path(APPPATH.'third_party/origami');
+        
+        // Activation du profiler
+        $this->output->enable_profiler();
+    }
+
+    public function index()
+    {
+        $this->unit->run($this->test_model->add(), TRUE, "Insert + Transaction");
+        $this->unit->run($this->test_model->add_user_address(), TRUE, "Insert + cryptage");
+        $this->unit->run($this->test_model->add_user_file(), TRUE, "Insert + binaire");
+        $this->unit->run($this->test_model->get(), 'is_array', "Select");        
+        $this->unit->run($this->test_model->get_join(), 'is_array', "Select + Join");
+        $this->unit->run($this->test_model->get_user_address(), 'is_array', "Select + relation + cryptage");
+        $this->unit->run($this->test_model->get_user_file(), 'is_array', "Select + binaire");
+        $this->unit->run($this->test_model->del(), TRUE, "Delete");
+        $this->output->set_output($this->unit->report());
+    }
+
+}
+```
+
+
+--------------
+## Entity
+
+- **Adresse** :
+*A exemple of adresse Entity generate by Origami_generator.*
+
+```
+class address extends \Origami\Entity {
+    
+	public static $table = 'address';
+    
+	/**
+	 * @property integer $id
+	 * @property integer $user_id
+	 * @property string $street
+	 */
+	public static $fields = array(
+		array('name' => 'id', 'type' => 'int'),
+		array('name' => 'user_id', 'type' => 'int'),
+		array('name' => 'street', 'type' => 'string', 'allow_null' => true, 'encrypt' => TRUE),
+		array('name' => 'vector', 'type' => 'string', 'allow_null' => true)
+	);
+    
+	public static $primary_key = 'id';
+    
+	public static $associations = array(
+		array('association_key' => 'user', 'entity' => '\Entity\test\user', 'type' => 'belongs_to', 'primary_key' => 'id', 'foreign_key' => 'user_id')
+	);
+}
+```
+--------------
 
  
