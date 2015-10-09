@@ -27,7 +27,7 @@ incompatible type systems in object-oriented programming languages.
 
 
 
-* **Dependence** :
+- **Dependence** :
     a few exemple of library dependance for origami in construct function.
 
  ```
@@ -46,7 +46,7 @@ incompatible type systems in object-oriented programming languages.
     }
     
     ```
- * **Add** :
+ - **Add** :
      Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
      
      ```
