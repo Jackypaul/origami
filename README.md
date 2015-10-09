@@ -47,7 +47,7 @@ incompatible type systems in object-oriented programming languages.
     
     ```
     
-    * **Add** :
+ * **Add** :
      Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
      
      ```
