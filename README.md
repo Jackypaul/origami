@@ -86,7 +86,7 @@ incompatible type systems in object-oriented programming languages.
  * **Add_user_file** :
   In this exemple, the png file is encoding in base64.
 
-```
+     ```
      public function add_user_file()
     {
         $user = \Entity\test\user::find_one();
@@ -99,5 +99,74 @@ incompatible type systems in object-oriented programming languages.
         return $file->save();
     }
     ```
-     
+ * **Get** :
+ the get function use find_one() and return the variable in a array
+```
+  public function get()
+    {
+        $user = \Entity\test\user::find_one();
+        $user = new \Entity\test\user($user->id);
+        
+        return $user->toArray();
+    }
+    ```
+    
+ * **get_join** :
+ You can join some entity.
+```
+   public function get_join()
+    {
+        $user = \Entity\test\user::find_one();
+
+        $result = $user
+            ->join(\Entity\test\file::entity())
+            ->join(\Entity\test\address::entity())
+            ->find_one();
+
+        return $result->toArray();
+    }
+    ```
+ * **get_user_adress** :
+ ```
+    public function get_user_address()
+    {
+        $user = \Entity\test\user::find_one();
+        
+        $address = $user->address()->find_one();
+
+        return $address->toArray();
+    }
+    ```
+ * **get_user_file** :
+ ```
+    public function get_user_file()
+    {
+        $file = \Entity\test\file::find_one();
+        
+        return $file->toArray();
+    }
+ ```
+* **set** :
+In this exemple the set function find the firstname of the user table in the Entity and save it
+```
+    public function set()
+    {
+        $user = \Entity\test\user::find_one();
+        $user->firstname = 'John';
+
+        return $user->save();
+    }
+ ```
+ * **Del** :
+The function del remove the table.
+```
+    public function del()
+    {
+        $user = \Entity\test\user::find_one();
+
+        return $user->remove();
+    }
+```
+-----------------------------------
+
  
