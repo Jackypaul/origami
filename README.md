@@ -101,7 +101,9 @@ incompatible type systems in object-oriented programming languages.
     ```
  * **Get** :
  the get function use find_one() and return the variable in a array
-```
+
+
+  ```
   public function get()
     {
         $user = \Entity\test\user::find_one();
@@ -113,7 +115,8 @@ incompatible type systems in object-oriented programming languages.
     
  * **get_join** :
  You can join some entity.
-```
+
+   ```
    public function get_join()
     {
         $user = \Entity\test\user::find_one();
@@ -127,7 +130,8 @@ incompatible type systems in object-oriented programming languages.
     }
     ```
  * **get_user_adress** :
- ```
+ 
+   ```
     public function get_user_address()
     {
         $user = \Entity\test\user::find_one();
@@ -138,7 +142,8 @@ incompatible type systems in object-oriented programming languages.
     }
     ```
  * **get_user_file** :
- ```
+ 
+   ```
     public function get_user_file()
     {
         $file = \Entity\test\file::find_one();
@@ -159,7 +164,9 @@ In this exemple the set function find the firstname of the user table in the Ent
  ```
  * **Del** :
 The function del remove the table.
-```
+
+
+  ```
     public function del()
     {
         $user = \Entity\test\user::find_one();
