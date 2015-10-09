@@ -30,6 +30,8 @@ WHY USE ORIGAMI ORM ?
   Construct : 
   few exemple of dependence in the construct function.
      
+
+<?php
       function __construct()
     {
         parent::__construct();
@@ -43,5 +45,6 @@ WHY USE ORIGAMI ORM ?
             'encryption_key' => bin2hex('Origami')
         ));
     }
+    ?>
                                   
                                   
