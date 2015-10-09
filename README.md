@@ -28,9 +28,9 @@ incompatible type systems in object-oriented programming languages.
 
 
 - **Dependence** :
-    a few exemple of library dependance for origami in construct function.
+a few exemple of library dependance for origami in construct function.
 
- ```
+```
      function __construct()
     {
         parent::__construct();
@@ -45,11 +45,11 @@ incompatible type systems in object-oriented programming languages.
         ));
     }
     
-    ```
- - **Add** :
-     Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
+```
+- **Add** :
+Origami return the state (trans_status) during the "get" and cancel it if any error occurs.
      
-     ```
+```
      public function add()
     {
         \Origami\DB::get('test')->trans_start();
@@ -67,11 +67,11 @@ incompatible type systems in object-oriented programming languages.
         
         return \Origami\DB::get('test')->trans_status();
     }
-    ```
- * **Add_user_address** : 
+```
+- **Add_user_address** : 
  the find_one() is use to get one user_id.
    
-   ```
+```
    public function add_user_address()
     {
         $user = \Entity\test\user::find_one();
@@ -82,11 +82,12 @@ incompatible type systems in object-oriented programming languages.
         
         return $address->save();
     }
-    ```
- * **Add_user_file** :
+```
+
+- **Add_user_file** :
   In this exemple, the png file is encoding in base64.
 
-     ```
+```
      public function add_user_file()
     {
         $user = \Entity\test\user::find_one();
@@ -98,12 +99,12 @@ incompatible type systems in object-oriented programming languages.
 
         return $file->save();
     }
-    ```
- * **Get** :
+```
+ 
+- **Get** :
  the get function use find_one() and return the variable in a array
 
-
-  ```
+```
   public function get()
     {
         $user = \Entity\test\user::find_one();
@@ -111,12 +112,12 @@ incompatible type systems in object-oriented programming languages.
         
         return $user->toArray();
     }
-    ```
-    
- * **get_join** :
+```
+ 
+- **get_join** :
  You can join some entity.
 
-   ```
+```
    public function get_join()
     {
         $user = \Entity\test\user::find_one();
@@ -128,8 +129,8 @@ incompatible type systems in object-oriented programming languages.
 
         return $result->toArray();
     }
-    ```
- * **get_user_adress** :
+```
+ - **get_user_adress** :
  
    ```
     public function get_user_address()
@@ -141,7 +142,7 @@ incompatible type systems in object-oriented programming languages.
         return $address->toArray();
     }
     ```
- * **get_user_file** :
+ - **get_user_file** :
  
    ```
     public function get_user_file()
@@ -151,7 +152,7 @@ incompatible type systems in object-oriented programming languages.
         return $file->toArray();
     }
  ```
-* **set** :
+- **set** :
 In this exemple the set function find the firstname of the user table in the Entity and save it
 ```
     public function set()
@@ -162,11 +163,10 @@ In this exemple the set function find the firstname of the user table in the Ent
         return $user->save();
     }
  ```
- * **Del** :
+ - **Del** :
 The function del remove the table.
-
-
-  ```
+  
+```
     public function del()
     {
         $user = \Entity\test\user::find_one();
@@ -174,6 +174,5 @@ The function del remove the table.
         return $user->remove();
     }
 ```
------------------------------------
 
  
