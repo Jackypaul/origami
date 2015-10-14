@@ -25,18 +25,25 @@ incompatible type systems in object-oriented programming languages.
 - Validation
 
 
-| Class | Validation |
+| Var | Name |
 | ------------- | ----------- |
 | OPTION_TYPE_EMAIL      | email |
 | OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_IP     | ip     |
+| OPTION_TYPE_INT     | int     |
+| OPTION_TYPE_FLOAT     | float     |
+| OPTION_TYPE_EXCLUSION     | exclusion     |
+| OPTION_TYPE_INCLUSION     | inclusion     |
+| OPTION_TYPE_FORMAT     | format     |
+| OPTION_TYPE_LENGHT     | lenght     |
+| OPTION_TYPE_PRESENCE     | presence     |
+| OPTION_TYPE_CALLBACK     | callback     |
+| OPTION_MIN     | min     |
+| OPTION_MAX     | max     |
+| OPTION_LIST     | list     |
+| OPTION_MATCHER     | matcher     |
+| OPTION_CALLBACK     | callback     |
+| OPTION_MESSAGE     | message     |
 
 - Association
 - Field
