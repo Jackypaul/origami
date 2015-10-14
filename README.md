@@ -183,6 +183,7 @@ with Origami you have to use** `find_one()` **:**
 
 # Query Builder
 **Origame use Active Record Class of code igniter :**
+
 | Query Builder Code Igniter 3      |
 |-----------------------------------| 
 | `$this->db->get()`                |
