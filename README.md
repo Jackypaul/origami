@@ -184,18 +184,21 @@ with Origami you have to use** `find_one()` **:**
 # Query Builder
 **Origame use Active Record Class of code igniter :**
 
-| Query Builder Code Igniter 3      |
-|-----------------------------------| 
-| `$this->db->get()`                |
-| `$this->db->get_compiled_select()`|
-|`$this->db->get_where()`           |
-| `$this->db->select()`             |
-| `$this->db->select_max()`         |
-| `$this->db->select_min()`         |
-| `$this->db->select_avg()`         |
-| `$this->db->select_sum()`         |
-| `$this->db->from()`               |
-| `$this->db->join()`               |
+
+|                 Origami Query Builder			    |
+|-----------------------------------|-----------------------|
+| Query Builder Code Igniter 3      | Create in Origami     | 
+|-----------------------------------| ----------------------|
+| `$this->db->get()`                | `$this->db->get()`    |
+| `$this->db->get_compiled_select()`| `$this->db->get()`    |
+|`$this->db->get_where()`           | `$this->db->get()`    |
+| `$this->db->select()`             | `$this->db->get()`    |
+| `$this->db->select_max()`         | `$this->db->get()`    |
+| `$this->db->select_min()`         | `$this->db->get()`    |
+| `$this->db->select_avg()`         | `$this->db->get()`    |
+| `$this->db->select_sum()`         | `$this->db->get()`    |
+| `$this->db->from()`               | `$this->db->get()`    |
+| `$this->db->join()`               | `$this->db->get()`    |
 | `$this->db->or_where()`|
 | `$this->db->where_in()`|
 | `$this->db->or_where_in()`|
