@@ -186,16 +186,16 @@ with Origami you have to use** `find_one()` **:**
 
 | Query Builder Code Igniter 3 | Query Builder Origami     | 
 |---------------------------------- | ----------------------|
-| ```php $this->db->get()```                | `$this->db->get()`    |
-| `$this->db->get_compiled_select()`| `$this->db->get()`    |
-|`$this->db->get_where()`           | `$this->db->get()`    |
-| `$this->db->select()`             | `$this->db->get()`    |
-| `$this->db->select_max()`         | `$this->db->get()`    |
-| `$this->db->select_min()`         | `$this->db->get()`    |
-| `$this->db->select_avg()`         | `$this->db->get()`    |
-| `$this->db->select_sum()`         | `$this->db->get()`    |
-| `$this->db->from()`               | `$this->db->get()`    |
-| `$this->db->join()`               | `$this->db->get()`    |
+| `$this->db->get()`                | `$this->db->group_start()`    |
+| `$this->db->get_compiled_select()`| `$this->db->or_group_start()`    |
+|`$this->db->get_where()`           | `$this->db->not_group_start()`    |
+| `$this->db->select()`             | `$this->db->or_not_group_start()`    |
+| `$this->db->select_max()`         | `$this->db->group_end()`    |
+| `$this->db->select_min()`         | `$this->db->offset()`    |
+| `$this->db->select_avg()`         | `$this->db->result()`    |
+| `$this->db->select_sum()`         | `$this->db->find()`    |
+| `$this->db->from()`               | `$this->db->find_one()`    |
+| `$this->db->join()`               | `$this->db->count()`    |
 | `$this->db->or_where()`|
 | `$this->db->where_in()`|
 | `$this->db->or_where_in()`|
@@ -233,6 +233,92 @@ with Origami you have to use** `find_one()` **:**
 | `$this->db->stop_cache()`|
 | `$this->db->flush_cache()`|
 | `$this->db->reset_query()`|
+
+
+**Create an OFFSET in sql :**
+```php
+    public function offset($offset)
+    {
+       \Origami\DB::get($this->config->getDataBase())->offset($offset);
+
+        return $this;
+    }
+```
+**Request a result :**
+```php
+ private function result()
+    {
+        // Request
+        $results = $this->select()->from($this->config->getTable())->get()->result_array();
+        
+        // If request fail (no result)
+        if (empty($results)) {
+            return array();
+
+            // If request success
+        } else {
+            $objects = array();
+
+            foreach ($results as $result) {
+                // Nom de la classe
+                $class = $this->config->getClass();
+
+                // Creer le tableau de résultat
+                $objects[] = new $class($result, array(
+                    'new' => TRUE,
+                    'silence' => FALSE
+                ));
+            }
+
+            return $objects;
+        }
+    }
+```
+**Find one model :**
+```php
+   public function find_one()
+    {
+		// Limite la requête a un objet
+        \Origami\DB::get($this->config->getDataBase())->limit(1);
+
+        // Exécute la requête
+        $objects = $this->find();
+
+        // Retoune le premier résultat
+        return (isset($objects[0])) ? $objects[0] : NULL;
+    }
+```
+**Find some models**
+```php
+    public function find()
+    {
+		$objects = $this->result();
+		
+		// Si aucun résultat trouvé
+        if (empty($objects)) {
+            return array();
+        }
+
+        // Retoune les objets
+        return $objects;
+    }
+```
+**Count the result found :**
+```php
+    public function count()
+    {
+		 return (int) \Origami\DB::get($this->config->getDataBase())->count_all_results($this->config->getTable());
+    }
+
+```
+**Request error handler :**
+```php
+       private function setConfig(\Origami\Entity\Manager\Config &$config)
+    {
+       $this->config = &$config;
+    }
+```
+
 
 # Transaction
 
