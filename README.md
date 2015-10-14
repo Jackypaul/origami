@@ -235,7 +235,7 @@ with Origami you have to use** `find_one()` **:**
 | `$this->db->reset_query()`|
 
 
-**Create an OFFSET in sql :**
+**Create an offset in sql :**
 ```php
     public function offset($offset)
     {
@@ -321,6 +321,16 @@ with Origami you have to use** `find_one()` **:**
 
 
 # Transaction
+
+**can be used when you want to make sure all the statements you specify are executed.
+If at least one statement fails, all the changes will be rolled back and 
+database will be in its initial state.**
+
+```php
+  \Origami\DB::get('test')->trans_start();
+  \Origami\DB::get('test')->trans_complete();
+  return \Origami\DB::get('test')->trans_status();
+```
 
 # Secuity
 - Encryption
