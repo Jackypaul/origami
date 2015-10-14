@@ -35,7 +35,7 @@ incompatible type systems in object-oriented programming languages.
 ###- **Validation**
 
 
-```
+```php
 class Validation
 {
     const OPTION_TYPE_EMAIL = 'email';
@@ -60,7 +60,7 @@ class Validation
 
 ###- **Association**
 
-```
+```php
 class Association
 {
     const TYPE_HAS_ONE = 'has_one';
@@ -71,7 +71,7 @@ class Association
 
 ###- **Field**
 
-```
+```php
 class Field
 {
     const TYPE_INTEGER = 'int';
@@ -89,7 +89,7 @@ class Field
 ```
 
 ###- *Table*
-```
+```php
 class Table
 {
 
@@ -101,14 +101,14 @@ class Table
     }
 ```
 **Return the table name :**
-```
+```php
    public function getName()
     {
         return $this->name;
     }
 ```
 **Edit the table name :**
-```
+```php
    public function setName(\Origami\Entity\Manager\Config &$config)
     {
         $this->name = $config->getTable();
@@ -117,7 +117,7 @@ class Table
 }
 ```
 ###- *Primary key*
-```
+```php
 class PrimaryKey
 {
 	private $name;  //Primary key name.
@@ -130,12 +130,26 @@ class PrimaryKey
 **Like the table class you can return the name of your primary key with**`getName` **and 
 edit her with** `setName`
 
-```
-	
 # CRUD
-- Create
-- edit
-- delete
+
+###- *Add*
+**first, create new entity :**
+```php
+$user = new \Entity\test\user();
+```
+**And add value :**
+```php
+$user->firstname = 'John';
+$user->lastname = 'Do';
+```
+Then save it !
+```php
+$user->save();
+```
+
+
+###- *Edit*
+###- *Delete*
 
 # RelationShip
 
