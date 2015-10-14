@@ -147,8 +147,8 @@ Then save it !
 $user->save();
 ```
 ###- *Get*
-**The `get()` function allow you to get a request in the database, 
-with Origami you have to use `find_one()`:**
+**The **`get()` **function allow you to get a request in the database, 
+with Origami you have to use** `find_one()` **:**
 ```php
     public function get()
     {
@@ -157,7 +157,16 @@ with Origami you have to use `find_one()`:**
     }
 ```
 ###- *Edit*
-**The `set()` function using `find_one()` to find the value and return the new value save :**
+**The **`set()` **function using **`find_one()`** to find the value and return the new value save :**
+```php
+    public function set()
+    {
+        $user = \Entity\test\user::find_one();
+        $user->firstname = 'John';
+
+        return $user->save();
+    }
+```
 
 ###- *Delete*
 
