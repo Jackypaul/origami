@@ -25,8 +25,8 @@ incompatible type systems in object-oriented programming languages.
 - Validation
 - Association
 - Field
-	- Table
-	- Primary key
+- Table
+- Primary key
 	
 	- CRUD
 	- RelationShip
