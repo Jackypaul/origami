@@ -21,6 +21,16 @@ incompatible type systems in object-oriented programming languages.
       Model Generator is a controller who create automatically your entity, you don't need to create them manually
                                   
 ----------
+
+| Documentation|
+| ------------- | ----------- |
+| Schema |
+| CRUD |
+| RelationShip |
+| Query Builder |
+| Transactions |
+| Security |
+----------
 # Schema
 ###- **Validation**
 
