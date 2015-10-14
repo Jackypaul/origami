@@ -22,8 +22,62 @@ incompatible type systems in object-oriented programming languages.
                                   
 ----------
 # Schema
-- Validation :
-**
+- Validation
+
+
+```
+<?php
+
+namespace Origami\Entity\Shema;
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * Origami ORM (objet relationnel mapping)
+ * @author Yoann VANITOU
+ * @license http://www.apache.org/licenses/LICENSE-2.0
+ * @link https://github.com/maltyxx/origami
+ */
+class Validation
+{
+    const OPTION_TYPE_EMAIL = 'email';
+    const OPTION_TYPE_URL = 'url';
+    const OPTION_TYPE_IP = 'ip';
+    const OPTION_TYPE_INT = 'int';
+    const OPTION_TYPE_FLOAT = 'float';
+    const OPTION_TYPE_EXCLUSION = 'exclusion';
+    const OPTION_TYPE_INCLUSION = 'inclusion';
+    const OPTION_TYPE_FORMAT = 'format';
+    const OPTION_TYPE_LENGTH = 'length';
+    const OPTION_TYPE_PRESENCE = 'presence';
+    const OPTION_TYPE_CALLBACK = 'callback';
+    const OPTION_MIN = 'min';
+    const OPTION_MAX = 'max';
+    const OPTION_LIST = 'list';
+    const OPTION_MATCHER = 'matcher';
+    const OPTION_CALLBACK = 'callback';
+    const OPTION_MESSAGE = 'message';
+}
+
+- Association
+- Field
+- Table
+- Primary key
+	
+# CRUD
+- Create
+- edit
+- delete
+
+# RelationShip
+
+# Query Builder
+
+# Transaction
+
+# Secuity
+- Encryption
+- Encoding
 
 | Var | Name |
 | ------------- | ----------- |
@@ -45,25 +99,6 @@ incompatible type systems in object-oriented programming languages.
 | OPTION_CALLBACK     | callback     |
 | OPTION_MESSAGE     | message     |
 
-- Association
-- Field
-- Table
-- Primary key
-	
-# CRUD
-- Create
-- edit
-- delete
-
-# RelationShip
-
-# Query Builder
-
-# Transaction
-
-# Secuity
-- Encryption
-- Encoding
 
 ----------
 	
