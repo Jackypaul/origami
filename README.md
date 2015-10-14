@@ -213,12 +213,38 @@ with Origami you have to use** `find_one()` **:**
 | $this->db->start_cache()|
 | $this->db->stop_cache()|
 | $this->db->set();|
+
 | $this->db->set();|
 | $this->db->set();|
 | $this->db->set();|
 | $this->db->set();|
 | $this->db->set();|
 | $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+
 
 # Transaction
 
