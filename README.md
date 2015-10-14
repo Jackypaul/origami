@@ -182,6 +182,27 @@ with Origami you have to use** `find_one()` **:**
 # RelationShip
 
 # Query Builder
+**Origame use Active Record Class of code igniter :**
+| Active Record Database Pattern|
+|-------------| ----------- |
+| $this->db->where(); |
+| $this->db->or_where(); |
+| $this->db->where_in(); |
+| $this->db->or_where_in(); |
+| $this->db->where_not_in(); |
+| $this->db->like();|
+| $this->db->or_like();|
+| $this->db->not_like();|
+| $this->db->or_not_like();|
+| $this->db->group_by();|
+| $this->db->distinct();|
+| $this->db->having();|
+| $this->db->or_having();|
+| $this->db->or_having();|
+| $this->db->or_having();|
+| $this->db->or_having();|
+| $this->db->or_having();|
+| $this->db->or_having();|
 
 # Transaction
 
