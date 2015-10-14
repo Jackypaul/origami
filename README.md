@@ -147,7 +147,7 @@ Then save it !
 $user->save();
 ```
 ###- *Get*
-**The **`get()` **function allow you to get a request in the database, 
+**The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
     public function get()
