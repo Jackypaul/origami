@@ -25,7 +25,7 @@ incompatible type systems in object-oriented programming languages.
 - Validation
 
 
-| Class Validation |
+| Class | Validation |
 | ------------- | ----------- |
 | OPTION_TYPE_EMAIL      | email |
 | OPTION_TYPE_URL     | url     |
