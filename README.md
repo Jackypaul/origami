@@ -48,7 +48,7 @@ class Validation
 }
 ```
 
-- Association
+###- **Association**
 
 ```
 class Association
@@ -59,7 +59,7 @@ class Association
 }
 ```
 
-- Field
+###- **Field**
 
 ```
 class Field
@@ -78,11 +78,11 @@ class Field
 }
 ```
 
-- Table
+###- *Table*
 
 
 
-- Primary key
+###- *Primary key*
 ```
 class PrimaryKey
 {
@@ -93,14 +93,14 @@ class PrimaryKey
         $this->setName($config);
     }
 ```
-Return the primary key name :
+*Return the primary key name :*
 ```
     public function getName()
     {
         return $this->name;
     }
 ```
-Edit the primary key name
+*Edit the primary key name :*
 ```
     public function setName(\Origami\Entity\Manager\Config &$config)
     {
