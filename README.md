@@ -22,14 +22,14 @@ incompatible type systems in object-oriented programming languages.
                                   
 ----------
 
-					| Documentation|
-					|:-------------:| ----------- |
-					| Schema |
-					| CRUD |
-					| RelationShip |
-					| Query Builder |
-					| Transactions |
-					| Security |
+| Documentation|
+|-------------| ----------- |
+| Schema |
+| CRUD |
+| RelationShip |
+| Query Builder |
+| Transactions |
+| Security |
 ----------
 # Schema
 ###- **Validation**
@@ -89,9 +89,33 @@ class Field
 ```
 
 ###- *Table*
+```
+class Table
+{
 
+    private $name; //table name
+    
+    public function __construct(\Origami\Entity\Manager\Config &$config)
+    {
+        $this->setName($config);
+    }
+```
+**Return the table name :**
+```
+   public function getName()
+    {
+        return $this->name;
+    }
+```
+**Edit the table name :**
+```
+   public function setName(\Origami\Entity\Manager\Config &$config)
+    {
+        $this->name = $config->getTable();
+    }
 
-
+}
+```
 ###- *Primary key*
 ```
 class PrimaryKey
@@ -103,21 +127,8 @@ class PrimaryKey
         $this->setName($config);
     }
 ```
-**Return the primary key name :**
-```
-    public function getName()
-    {
-        return $this->name;
-    }
-```
-**Edit the primary key name :**
-```
-    public function setName(\Origami\Entity\Manager\Config &$config)
-    {
-        $this->name = $config->getPrimaryKey();
-    }
-
-}
+**Like the table class you can return the name of your primary key with `getName` and 
+edit her with `setName`**
 
 ```
 	
