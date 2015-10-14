@@ -185,10 +185,11 @@ with Origami you have to use** `find_one()` **:**
 **Origame use Active Record Class of code igniter :**
 
 
-|                 Origami Query Builder			    |
-|-----------------------------------|-----------------------|
-| Query Builder Code Igniter 3      | Create in Origami     | 
-|-----------------------------------| ----------------------|
+| Name | Description          |
+| ------------- | ----------- |
+
+| Query Builder Code Igniter 3 | Create in Origami     | 
+|---------------------------------- | ----------------------|
 | `$this->db->get()`                | `$this->db->get()`    |
 | `$this->db->get_compiled_select()`| `$this->db->get()`    |
 |`$this->db->get_where()`           | `$this->db->get()`    |
