@@ -86,19 +86,22 @@ class Field
 ```
 class PrimaryKey
 {
-	private $name;
+	private $name;  //Primary key name.
 
     public function __construct(\Origami\Entity\Manager\Config &$config)
     {
         $this->setName($config);
     }
-
+```
+Return the primary key name :
+```
     public function getName()
     {
         return $this->name;
     }
-
-
+```
+Edit the primary key name
+```
     public function setName(\Origami\Entity\Manager\Config &$config)
     {
         $this->name = $config->getPrimaryKey();
