@@ -27,10 +27,9 @@ incompatible type systems in object-oriented programming languages.
 	- Query Builder
 	- Transaction
 	- Encrypt/Bin
-	- 
 	- Item
-- Item
-- Item
+	- Item
+	- Item
 ----------
 	
 
