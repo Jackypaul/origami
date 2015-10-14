@@ -29,13 +29,20 @@ incompatible type systems in object-oriented programming languages.
 - Primary key
 	
 #- CRUD
+- Create
+- edit
+- delete
+
 #- RelationShip
+
 #- Query Builder
+
 #- Transaction
-#- Encrypt/Bin
-	- Item
-	- Item
-	- Item
+
+#- Secuity
+- Encryption
+- Encoding
+
 ----------
 	
 
