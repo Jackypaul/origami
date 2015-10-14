@@ -100,14 +100,14 @@ class Table
         $this->setName($config);
     }
 ```
-**Return the table name :**
+*Return the table name :*
 ```
    public function getName()
     {
         return $this->name;
     }
 ```
-**Edit the table name :**
+*Edit the table name :*
 ```
    public function setName(\Origami\Entity\Manager\Config &$config)
     {
@@ -127,8 +127,8 @@ class PrimaryKey
         $this->setName($config);
     }
 ```
-**Like the table class you can return the name of your primary key with `getName` and 
-edit her with `setName`**
+*Like the table class you can return the name of your primary key with **`getName`** and 
+edit her with **`setName`***
 
 ```
 	
