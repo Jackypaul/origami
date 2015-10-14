@@ -198,11 +198,20 @@ with Origami you have to use** `find_one()` **:**
 | $this->db->distinct();|
 | $this->db->having();|
 | $this->db->or_having();|
-| $this->db->or_having();|
-| $this->db->or_having();|
-| $this->db->or_having();|
-| $this->db->or_having();|
-| $this->db->or_having();|
+| $this->db->order_by();|
+| $this->db->limit();|
+| $this->db->count_all_results();|
+| $this->db->count_all();|
+| $this->db->insert();|
+| $this->db->insert_batch();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
+| $this->db->set();|
 
 # Transaction
 
