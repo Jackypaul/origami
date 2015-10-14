@@ -28,11 +28,11 @@ incompatible type systems in object-oriented programming languages.
 - Table
 - Primary key
 	
-	- CRUD
-	- RelationShip
-	- Query Builder
-	- Transaction
-	- Encrypt/Bin
+#- CRUD
+#- RelationShip
+#- Query Builder
+#- Transaction
+#- Encrypt/Bin
 	- Item
 	- Item
 	- Item
