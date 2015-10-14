@@ -26,18 +26,6 @@ incompatible type systems in object-oriented programming languages.
 
 
 ```
-<?php
-
-namespace Origami\Entity\Shema;
-
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-/**
- * Origami ORM (objet relationnel mapping)
- * @author Yoann VANITOU
- * @license http://www.apache.org/licenses/LICENSE-2.0
- * @link https://github.com/maltyxx/origami
- */
 class Validation
 {
     const OPTION_TYPE_EMAIL = 'email';
@@ -61,9 +49,64 @@ class Validation
 ```
 
 - Association
+
+```
+class Association
+{
+    const TYPE_HAS_ONE = 'has_one';
+    const TYPE_HAS_MANY = 'has_many';
+    const TYPE_BELONGS_TO = 'belongs_to';
+}
+```
+
 - Field
+
+```
+class Field
+{
+    const TYPE_INTEGER = 'int';
+    const TYPE_INT = self::TYPE_INTEGER;
+    const TYPE_FLOAT = 'float';
+    const TYPE_DOUBLE = self::TYPE_FLOAT;
+    const TYPE_STRING = 'string';
+    const TYPE_DATE = 'date';
+    const DATEFORMAT = 'Y-m-d H:i:s';
+    const ALLOWNULL = 'allow_null';
+    const ENCRYPT = 'encrypt';
+    const BINARY = 'binary';
+    const DEFAULTVALUE_NOW = 'now';
+}
+```
+
 - Table
+
+
+
 - Primary key
+```
+class PrimaryKey
+{
+	private $name;
+
+    public function __construct(\Origami\Entity\Manager\Config &$config)
+    {
+        $this->setName($config);
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    public function setName(\Origami\Entity\Manager\Config &$config)
+    {
+        $this->name = $config->getPrimaryKey();
+    }
+
+}
+
+```
 	
 # CRUD
 - Create
