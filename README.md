@@ -182,15 +182,11 @@ with Origami you have to use** `find_one()` **:**
 # RelationShip
 
 # Query Builder
-**Origame use Active Record Class of code igniter :**
+**Origame use Active Record Class of code igniter 3 :**
 
-
-| Name | Description          |
-| ------------- | ----------- |
-
-| Query Builder Code Igniter 3 | Create in Origami     | 
+| Query Builder Code Igniter 3 | Query Builder Origami     | 
 |---------------------------------- | ----------------------|
-| `$this->db->get()`                | `$this->db->get()`    |
+| ```php $this->db->get()```                | `$this->db->get()`    |
 | `$this->db->get_compiled_select()`| `$this->db->get()`    |
 |`$this->db->get_where()`           | `$this->db->get()`    |
 | `$this->db->select()`             | `$this->db->get()`    |
