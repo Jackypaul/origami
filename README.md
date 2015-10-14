@@ -320,9 +320,9 @@ with Origami you have to use** `find_one()` **:**
 ```
 
 
-# Transaction
+# Transactions
 
-**can be used when you want to make sure all the statements you specify are executed.
+**Transactions can be used when you want to make sure all the statements you specify are executed.
 If at least one statement fails, all the changes will be rolled back and 
 database will be in its initial state.**
 
@@ -333,31 +333,19 @@ database will be in its initial state.**
 ```
 
 # Secuity
-- Encryption
-- Encoding
 
-| Var | Name |
-| ------------- | ----------- |
-| OPTION_TYPE_EMAIL      | email |
-| OPTION_TYPE_URL     | url     |
-| OPTION_TYPE_IP     | ip     |
-| OPTION_TYPE_INT     | int     |
-| OPTION_TYPE_FLOAT     | float     |
-| OPTION_TYPE_EXCLUSION     | exclusion     |
-| OPTION_TYPE_INCLUSION     | inclusion     |
-| OPTION_TYPE_FORMAT     | format     |
-| OPTION_TYPE_LENGHT     | lenght     |
-| OPTION_TYPE_PRESENCE     | presence     |
-| OPTION_TYPE_CALLBACK     | callback     |
-| OPTION_MIN     | min     |
-| OPTION_MAX     | max     |
-| OPTION_LIST     | list     |
-| OPTION_MATCHER     | matcher     |
-| OPTION_CALLBACK     | callback     |
-| OPTION_MESSAGE     | message     |
+### -*Encryption*
+**You can encrypt a string with origami but before, you need to activate it in** *origami\config\origami.php*
+```php
+$config['origami'] = array(
+'encryption_enable' => TRUE,
+    'encryption_key' => bin2hex('Origami')
+);
+```
+
+### -*Encoding*
+
+$file->content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
 
 
-----------
-	
-
- 
+--------------------------
