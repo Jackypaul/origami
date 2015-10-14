@@ -344,8 +344,8 @@ $config['origami'] = array(
 ```
 
 ### -*Encoding*
-
+```php
 $file->content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
-
+```
 
 --------------------------
