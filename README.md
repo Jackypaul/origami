@@ -22,14 +22,14 @@ incompatible type systems in object-oriented programming languages.
                                   
 ----------
 
-| Documentation|
-|:-------------:| ----------- |
-| Schema |
-| CRUD |
-| RelationShip |
-| Query Builder |
-| Transactions |
-| Security |
+					| Documentation|
+					|:-------------:| ----------- |
+					| Schema |
+					| CRUD |
+					| RelationShip |
+					| Query Builder |
+					| Transactions |
+					| Security |
 ----------
 # Schema
 ###- **Validation**
