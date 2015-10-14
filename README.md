@@ -205,6 +205,13 @@ with Origami you have to use** `find_one()` **:**
 | $this->db->insert();|
 | $this->db->insert_batch();|
 | $this->db->set();|
+| $this->db->update();|
+| $this->db->update_batch();|
+| $this->db->delete();|
+| $this->db->empty_table();|
+| $this->db->truncate();|
+| $this->db->start_cache()|
+| $this->db->stop_cache()|
 | $this->db->set();|
 | $this->db->set();|
 | $this->db->set();|
