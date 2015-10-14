@@ -22,9 +22,9 @@ incompatible type systems in object-oriented programming languages.
                                   
 ----------
 #- Schema
-	- Validation
-	- Association
-	- Field
+- Validation
+- Association
+- Field
 	- Table
 	- Primary key
 	
