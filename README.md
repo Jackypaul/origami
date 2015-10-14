@@ -93,14 +93,14 @@ class PrimaryKey
         $this->setName($config);
     }
 ```
-*Return the primary key name :*
+**Return the primary key name :**
 ```
     public function getName()
     {
         return $this->name;
     }
 ```
-*Edit the primary key name :*
+**Edit the primary key name :**
 ```
     public function setName(\Origami\Entity\Manager\Config &$config)
     {
