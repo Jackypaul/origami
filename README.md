@@ -22,7 +22,7 @@ incompatible type systems in object-oriented programming languages.
                                   
 ----------
 # Schema
-- Validation
+###- **Validation**
 
 
 ```
