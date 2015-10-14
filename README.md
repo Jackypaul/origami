@@ -23,6 +23,13 @@ incompatible type systems in object-oriented programming languages.
 ----------
 # Schema
 - Validation
+
+
+| Name | Description          |
+| ------------- | ----------- |
+| Help      | Display the help window.|
+| Close     | Closes a window     |
+
 - Association
 - Field
 - Table
