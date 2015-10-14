@@ -157,7 +157,7 @@ with Origami you have to use** `find_one()` **:**
     }
 ```
 ###- *Edit*
-**The **`set()` **function using **`find_one()`** to find the value and return the new value save :**
+**The** `set()` **function using** `find_one()` **to find the value and return the new value save :**
 ```php
     public function set()
     {
