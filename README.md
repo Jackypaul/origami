@@ -142,7 +142,7 @@ $user = new \Entity\test\user();
 $user->firstname = 'John';
 $user->lastname = 'Do';
 ```
-Then save it !
+**Then save it !**
 ```php
 $user->save();
 ```
@@ -169,6 +169,15 @@ with Origami you have to use** `find_one()` **:**
 ```
 
 ###- *Delete*
+**You can delete a value with** `find_one()` **to get your value and return** `remove()` **to delete it :**
+```php
+    public function del()
+    {
+        $user = \Entity\test\user::find_one();
+
+        return $user->remove();
+    }
+```
 
 # RelationShip
 
