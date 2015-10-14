@@ -196,48 +196,43 @@ with Origami you have to use** `find_one()` **:**
 | `$this->db->select_sum()`         |
 | `$this->db->from()`               |
 | `$this->db->join()`               |
-
-
-
-
-
-| $this->db->or_where()|
-| $this->db->where_in()|
-| $this->db->or_where_in()|
-| $this->db->where_not_in()|
-| $this->db->or_where_not_in()|
-| $this->db->like()|
-| $this->db->or_like()|
-| $this->db->not_like()|
-| $this->db->or_not_like()|
-| $this->db->group_by()|
-| $this->db->distinct()|
-| $this->db->having()|
-| $this->db->or_having()|
-| $this->db->order_by()|
-| $this->db->limit()|
-| $this->db->count_all_results()|
-| $this->db->count_all()|
-| $this->db->group_start()|
-| $this->db->or_group_start()|
-| $this->db->not_group_start()|
-| $this->db->or_not_group_start()|
-| $this->db->group_end()|
-| $this->db->insert()|
-| $this->db->get_compiled_insert()|
-| $this->db->insert_batch()|
-| $this->db->replace()|
-| $this->db->set()|
-| $this->db->update()|
-| $this->db->update_batch()|
-| $this->db->delete()|
-| $this->db->empty_table()|
-| $this->db->truncate()|
-| $this->db->get_compiled_delete()|
-| $this->db->start_cache()|
-| $this->db->stop_cache()|
-| $this->db->flush_cache()|
-| $this->db->reset_query()|
+| `$this->db->or_where()`|
+| `$this->db->where_in()`|
+| `$this->db->or_where_in()`|
+| `$this->db->where_not_in()`|
+| `$this->db->or_where_not_in()`|
+| `$this->db->like()`|
+| `$this->db->or_like()`|
+| `$this->db->not_like()`|
+| `$this->db->or_not_like()`|
+| `$this->db->group_by()`|
+| `$this->db->distinct()`|
+| `$this->db->having()`|
+| `$this->db->or_having()`|
+| `$this->db->order_by()`|
+| `$this->db->limit()`|
+| `$this->db->count_all_results()`|
+| `$this->db->count_all()`|
+| `$this->db->group_start()`|
+| `$this->db->or_group_start()`|
+| `$this->db->not_group_start()`|
+| `$this->db->or_not_group_start()`|
+| `$this->db->group_end()`|
+| `$this->db->insert()`|
+| `$this->db->get_compiled_insert()`|
+| `$this->db->insert_batch()`|
+| `$this->db->replace()`|
+| `$this->db->set()`|
+| `$this->db->update()`|
+| `$this->db->update_batch()`|
+| `$this->db->delete()`|
+| `$this->db->empty_table()`|
+| `$this->db->truncate()`|
+| `$this->db->get_compiled_delete()`|
+| `$this->db->start_cache()`|
+| `$this->db->stop_cache()`|
+| `$this->db->flush_cache()`|
+| `$this->db->reset_query()`|
 
 # Transaction
 
