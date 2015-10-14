@@ -25,10 +25,18 @@ incompatible type systems in object-oriented programming languages.
 - Validation
 
 
-| Name | Description          |
+| Class Validation |
 | ------------- | ----------- |
-| Help      | Display the help window.|
-| Close     | Closes a window     |
+| OPTION_TYPE_EMAIL      | email |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
+| OPTION_TYPE_URL     | url     |
 
 - Association
 - Field
