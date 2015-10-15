@@ -74,7 +74,7 @@ public static $associations = array(
 ```php
 public static $fields = array(
 	array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s'),
-	array('field' => 'key', 'type' => 'int' 'encrypt' => TRUE),
+	array('field' => 'key', 'type' => 'int', 'encrypt' => TRUE),
 	array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
 	array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
 );
@@ -83,16 +83,15 @@ public static $fields = array(
 ###- *Table*
 **Return the table name :**
 ```php
-        return $this->name;
+return $this->name;
 ```
 **Edit the table name :**
 ```php
-        $this->name = $config->getTable();
+$this->name = $config->getTable();
 ```
 ###- *Primary key*
 ```php
-
-        $this->setName($config);
+$this->setName($config);
 ```
 **Like the table class you can return the name of your primary key with**`getName` **and 
 edit her with** `setName`
@@ -117,14 +116,12 @@ $user->save();
 **The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
-        $user = \Entity\test\user::find_one(); //
-        ```
-        find_one search inside the first tab found
-        
-```php
-        $user = new \Entity\test\user($user->id);
+$user = \Entity\test\user::find_one(); //
 ```
-	this
+find_one search inside the first tab found
+```php
+$user = new \Entity\test\user($user->id);
+```
 ###- *Edit*
 **The** `set()` **function using** `find_one()` **to find the value and return the new value save :**
 ```php
