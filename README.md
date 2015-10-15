@@ -56,6 +56,16 @@ class Validation
     const OPTION_CALLBACK = 'callback';
     const OPTION_MESSAGE = 'message';
 }
+public static $fields = array(
+array('test' => 'id', 'type' => 'email'),
+array('test' => 'id', 'type'=> 'url'),
+array('test' => 'id', 'type'=> 'url'),
+array('test' => 'id', 'type'=> 'url'),
+array('test' => 'id', 'type'=> 'url'),
+array('test' => 'id', 'type'=> 'url'),
+array('test' => 'id', 'type'=> 'url'),
+array('test' => 'id', 'type'=> 'url'),
+
 ```
 
 ###- **Association**
