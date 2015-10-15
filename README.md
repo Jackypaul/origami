@@ -36,47 +36,39 @@ incompatible type systems in object-oriented programming languages.
 
 
 ```php
-class Validation
+public static $validations = array(
+	array('field' => 'id', 'type' => 'present'),
+	array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
+	array('field' => 'email', 'type' => 'email'),
+	array('field' => 'ip', 'type'=> 'ip'),
+	array('field' => 'price', 'type'=> 'float'),
+	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
+	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
+	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
+	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99, 'message' => ''),
+);
+
+
+//for the callback
+public static function checkdate( $value )
 {
-    const OPTION_TYPE_EMAIL = 'email';
-    const OPTION_TYPE_URL = 'url';
-    const OPTION_TYPE_IP = 'ip';
-    const OPTION_TYPE_INT = 'int';
-    const OPTION_TYPE_FLOAT = 'float';
-    const OPTION_TYPE_EXCLUSION = 'exclusion';
-    const OPTION_TYPE_INCLUSION = 'inclusion';
-    const OPTION_TYPE_FORMAT = 'format';
-    const OPTION_TYPE_LENGTH = 'length';
-    const OPTION_TYPE_PRESENCE = 'presence';
-    const OPTION_TYPE_CALLBACK = 'callback';
-    const OPTION_MIN = 'min';
-    const OPTION_MAX = 'max';
-    const OPTION_LIST = 'list';
-    const OPTION_MATCHER = 'matcher';
-    const OPTION_CALLBACK = 'callback';
-    const OPTION_MESSAGE = 'message';
+	return ( date('Y-m-d', strtotime( $value ) ) === $value )
 }
-public static $fields = array(
-array('test' => 'id', 'type' => 'email'),
-array('test' => 'id', 'type'=> 'url'),
-array('test' => 'id', 'type'=> 'url'),
-array('test' => 'id', 'type'=> 'url'),
-array('test' => 'id', 'type'=> 'url'),
-array('test' => 'id', 'type'=> 'url'),
-array('test' => 'id', 'type'=> 'url'),
-array('test' => 'id', 'type'=> 'url'),
 
 ```
 
 ###- **Association**
 
+| Association Schema|
+|-------------| ----------- |
+| HAS_ONE | HAS_MANY |
+| BELONGS_TO |
+---------------------------
+
 ```php
-class Association
-{
-    const TYPE_HAS_ONE = 'has_one';
-    const TYPE_HAS_MANY = 'has_many';
-    const TYPE_BELONGS_TO = 'belongs_to';
-}
+public static $associations = array(
+		array('association_key' => 'address', 'entity' => '\Entity\test\address', 'type' => 'has_many', 'primary_key' => 'id', 'foreign_key' => 'user_id')
+	);
 ```
 
 ###- **Field**
