@@ -26,7 +26,6 @@ incompatible type systems in object-oriented programming languages.
 |-------------| ----------- |
 | Schema |
 | CRUD |
-| RelationShip |
 | Query Builder |
 | Transactions |
 | Security |
@@ -141,8 +140,6 @@ $user = \Entity\test\user::find_one();
 return $user->remove();
 ```
 
-# RelationShip
-
 # Query Builder
 **Origame use Query Builder Class of code igniter 3 :**
 
@@ -175,89 +172,77 @@ return $user->remove();
 | `count()` |
 | `delete()`  |
 -------------------------------
-
-**Create an offset in sql :**
+**group_start :**
 ```php
-    public function offset($offset)
-    {
-       \Origami\DB::get($this->config->getDataBase())->offset($offset);
-
-        return $this;
-    }
+$this->db->select('*')->from('my_table')
+        ->group_start()
+        ->where('a', 'a')
+        ->or_group_start()
+        ->where('b', 'b')
+        ->where('c', 'c')
+        ->group_end()
+        ->group_end()
+        ->where('d', 'd')
+->get();
+```
+```sql
+//SQL :
+SELECT * FROM (`my_table`) WHERE ( `a` = 'a' OR ( `b` = 'b' AND `c` = 'c' ) ) AND `d` = 'd'
 ```
 **Request a result :**
 ```php
- private function result()
-    {
-        // Request
-        $results = $this->select()->from($this->config->getTable())->get()->result_array();
-        
-        // If request fail (no result)
-        if (empty($results)) {
-            return array();
-
-            // If request success
-        } else {
-            $objects = array();
-
-            foreach ($results as $result) {
-                // Nom de la classe
-                $class = $this->config->getClass();
-
-                // Creer le tableau de résultat
-                $objects[] = new $class($result, array(
-                    'new' => TRUE,
-                    'silence' => FALSE
-                ));
-            }
-
-            return $objects;
-        }
-    }
+```
+```sql
+```
+**Request a result :**
+```php
+```
+```sql
+```
+**Request a result :**
+```php
+```
+```sql
+```
+**Request a result :**
+```php
+```
+```sql
+```
+**Request a result :**
+```php
+```
+```sql
+```
+**Create an offset in sql :**
+```php
+```
+```sql
+```
+**Request a result :**
+```php
+```
+```sql
 ```
 **Find one model :**
 ```php
-   public function find_one()
-    {
-		// Limite la requête a un objet
-        \Origami\DB::get($this->config->getDataBase())->limit(1);
-
-        // Exécute la requête
-        $objects = $this->find();
-
-        // Retoune le premier résultat
-        return (isset($objects[0])) ? $objects[0] : NULL;
-    }
+```
+```sql
 ```
 **Find some models**
 ```php
-    public function find()
-    {
-		$objects = $this->result();
-		
-		// Si aucun résultat trouvé
-        if (empty($objects)) {
-            return array();
-        }
-
-        // Retoune les objets
-        return $objects;
-    }
+```
+```sql
 ```
 **Count the result found :**
 ```php
-    public function count()
-    {
-		 return (int) \Origami\DB::get($this->config->getDataBase())->count_all_results($this->config->getTable());
-    }
-
+```
+```sql
 ```
 **Request error handler :**
 ```php
-       private function setConfig(\Origami\Entity\Manager\Config &$config)
-    {
-       $this->config = &$config;
-    }
+```
+```sql
 ```
 
 
