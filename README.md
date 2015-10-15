@@ -118,51 +118,41 @@ with Origami you have to use** `find_one()` **:**
 ```php
 $user = \Entity\test\user::find_one(); //
 ```
-find_one search inside the first tab found
+**find_one search inside the first tab found**
 ```php
 $user = new \Entity\test\user($user->id);
 ```
 ###- *Edit*
-**The** `set()` **function using** `find_one()` **to find the value and return the new value save :**
+**The** `set()` **function using** `find_one()` **to find the first value :**
 ```php
-    public function set()
-    {
-        $user = \Entity\test\user::find_one();
-        $user->firstname = 'John';
-
-        return $user->save();
-    }
+$user = \Entity\test\user::find_one();
+```
+**Or if you want make a specification :**
+```php
+$user = new \Entity\test\user($user->name);
+$user->firstname = 'John';
+return $user->save();
 ```
 
 ###- *Delete*
-**You can delete a value with** `find_one()` **to get your value and return** `remove()` **to delete it :**
+**You can delete a value with** `remove()` **:**
 ```php
-    public function del()
-    {
-        $user = \Entity\test\user::find_one();
-
-        return $user->remove();
-    }
+$user = \Entity\test\user::find_one();
+return $user->remove();
 ```
 
 # RelationShip
 
 # Query Builder
-**Origame use Active Record Class of code igniter 3 :**
+**Origame use Query Builder Class of code igniter 3 :**
 
-| Query Builder Code Igniter 3 | Query Builder Origami     | 
-|---------------------------------- | ----------------------|
-| `$this->db->get()`                | `$this->db->group_start()`    |
-| `$this->db->get_compiled_select()`| `$this->db->or_group_start()`    |
-|`$this->db->get_where()`           | `$this->db->not_group_start()`    |
-| `$this->db->select()`             | `$this->db->or_not_group_start()`    |
-| `$this->db->select_max()`         | `$this->db->group_end()`    |
-| `$this->db->select_min()`         | `$this->db->offset()`    |
-| `$this->db->select_avg()`         | `$this->db->result()`    |
-| `$this->db->select_sum()`         | `$this->db->find()`    |
-| `$this->db->from()`               | `$this->db->find_one()`    |
-| `$this->db->join()`               | `$this->db->count()`    |
-| `$this->db->or_where()`|
+| Query Builder Origami     | 
+|---------------------------------- |
+| `$this->db->group_start()`|
+| `$this->db->or_group_start()`|
+| `$this->db->not_group_start()`|
+| `$this->db->or_not_group_start()`|
+| `$this->db->or_where()`|          
 | `$this->db->where_in()`|
 | `$this->db->or_where_in()`|
 | `$this->db->where_not_in()`|
@@ -172,33 +162,18 @@ $user = new \Entity\test\user($user->id);
 | `$this->db->not_like()`|
 | `$this->db->or_not_like()`|
 | `$this->db->group_by()`|
-| `$this->db->distinct()`|
 | `$this->db->having()`|
 | `$this->db->or_having()`|
 | `$this->db->order_by()`|
 | `$this->db->limit()`|
-| `$this->db->count_all_results()`|
-| `$this->db->count_all()`|
-| `$this->db->group_start()`|
-| `$this->db->or_group_start()`|
-| `$this->db->not_group_start()`|
-| `$this->db->or_not_group_start()`|
-| `$this->db->group_end()`|
-| `$this->db->insert()`|
-| `$this->db->get_compiled_insert()`|
-| `$this->db->insert_batch()`|
-| `$this->db->replace()`|
-| `$this->db->set()`|
-| `$this->db->update()`|
-| `$this->db->update_batch()`|
-| `$this->db->delete()`|
-| `$this->db->empty_table()`|
-| `$this->db->truncate()`|
-| `$this->db->get_compiled_delete()`|
-| `$this->db->start_cache()`|
-| `$this->db->stop_cache()`|
-| `$this->db->flush_cache()`|
-| `$this->db->reset_query()`|
+| `$this->db->join()`
+| `$this->db->offset()`    |
+| `$this->db->select()`             |
+ | `$this->db->find()`    |
+ | `$this->db->find_one()`    |
+ | `$this->db->result()`    |
+  | `$this->db->count()`    |
+   | `$this->db->delete()`    |
 
 
 **Create an offset in sql :**
