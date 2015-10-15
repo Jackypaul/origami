@@ -149,7 +149,7 @@ return $user->remove();
 | `or_group_start()`|
 | `not_group_start()`|
 | `or_not_group_start()`|
-| `db->or_where()`|          
+| `or_where()`|          
 | `where_in()`|
 | `or_where_in()`|
 | `where_not_in()`|
@@ -172,60 +172,100 @@ return $user->remove();
 | `count()` |
 | `delete()`  |
 -------------------------------
-**group_start :**
+**group_start / or_group_start :**
 ```php
-$this->db->select('*')->from('test')
+$table = new \Entity\database\table::
         ->group_start()
         ->where('grp1', 'grp1')
         ->or_group_start()
         ->where('grp2', 'grp2')
         ->group_end()
         ->where('grp3', 'grp3')
-->get();
+	->find();
 ```
 ```sql
 //SQL :
-SELECT * FROM (`test`) WHERE ( `grp1` = 'grp1' OR ( `grp2` = 'grp2') ) AND `grp3` = 'grp3'
+SELECT * FROM (`table`) WHERE ( `grp1` = 'grp1' OR ( `grp2` = 'grp2') ) AND `grp3` = 'grp3'
 ```
-**Request a result :**
+**where / or_where : **
 ```php
+$table = new \Entity\database\table::
+	->where('group_name !=', $group_name);
+	->or_where('id >', $id); 
 ```
 ```sql
+WHERE group_name != 'grp1' OR id > 5
 ```
-**Request a result :**
+**where_in :**
 ```php
+$group_name = array('grp1', 'grp2', 'grp3');
+$table = new \Entity\database\table::
+	>where_in('group_name', $group_name)
 ```
 ```sql
+WHERE group_name IN ('grp1', 'grp2', 'grp3')
 ```
-**Request a result :**
+
+**or_where_in :**
 ```php
+$group_name = array('grp1', 'grp2', 'grp3');
+$table = new \Entity\database\table::
+	>or_where_in('group_name', $group_name)
 ```
 ```sql
+OR group_name IN ('grp1', 'grp2', 'grp3')
 ```
-**Request a result :**
+
+**where_not_in :**
 ```php
+$group_name = array('grp1', 'grp2', 'grp3');
+$table = new \Entity\database\table::
+	>where_not_in('group_name', $group_name)
 ```
 ```sql
+WHERE group_name NOT IN ('grp1', 'grp2', 'grp3')
 ```
-**Request a result :**
+**like :**
 ```php
+$table = new \Entity\database\table::
+        ->like('group_name' , 'grp1')
 ```
 ```sql
+WHERE `group_name` LIKE '%grp1%' ESCAPE '!'
 ```
-**Create an offset in sql :**
+**or_like :**
 ```php
+$table = new \Entity\database\table::
+	->like('group_name', 'grp1')
+	->or_like('group_number', 1)
 ```
 ```sql
+WHERE `group_name` LIKE '%grp1%' ESCAPE '!' OR  `group_number` LIKE 1 ESCAPE '!'
 ```
-**Request a result :**
+**not_like :**
 ```php
+$table = new \Entity\database\table::
+        ->not_like('group_name' , 'grp1')
 ```
 ```sql
+WHERE `group_name` NOT LIKE '%grp1%' ESCAPE '!'
 ```
-**Find one model :**
+**or_not_like :**
 ```php
+$table = new \Entity\database\table::
+	->like('group_name' , 'grp1')
+        ->or_not_like('group_number' , 1)
 ```
 ```sql
+WHERE `group_name` LIKE '%grp1%' OR  `group_number` NOT LIKE '%1%' ESCAPE '!'
+```
+**group_by :**
+```php
+$table = new \Entity\database\table::
+	->group_by('group_name')
+```
+```sql
+GROUP BY group_name
 ```
 **Find some models**
 ```php
