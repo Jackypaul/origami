@@ -45,7 +45,7 @@ public static $validations = array(
 	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
 	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
 	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
-	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99)
+	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99, 'message' => ''),
 );
 
 
@@ -54,9 +54,7 @@ public static function checkdate( $value )
 {
 	return ( date('Y-m-d', strtotime( $value ) ) === $value )
 }
-
 ```
-
 ###- **Association**
 
 | Association Schema|       |
@@ -67,40 +65,28 @@ public static function checkdate( $value )
 
 ```php
 public static $associations = array(
-	array('association_key' => 'address', 'entity' => '\Entity\test\address', 
-	'type' => 'has_many', 'primary_key' => 'id', 'foreign_key' => 'user_id')
-);
+		array('association_key' => 'address', 'entity' => '\Entity\test\address', 'type' => 'has_many', 'primary_key' => 'id', 'foreign_key' => 'user_id')
+	);
 ```
 
 ###- **Field**
 
 ```php
 public static $fields = array(
-	array('field' => 'id', 'type' => 'int'),
-	array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
-	array('field' => 'email', 'type' => 'email'),
-	array('field' => 'ip', 'type'=> 'ip'),
-	array('field' => 'price', 'type'=> 'float'),
-	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
-	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
-	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
-	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99)
+	array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s'),
+	array('field' => 'key', 'type' => 'int' 'encrypt' => TRUE),
+	array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
+	array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
 );
 ```
 
 ###- *Table*
-```php
-
-        $this->setName($config);
-```
 **Return the table name :**
 ```php
-
         return $this->name;
 ```
 **Edit the table name :**
 ```php
-
         $this->name = $config->getTable();
 ```
 ###- *Primary key*
@@ -131,11 +117,14 @@ $user->save();
 **The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
-        $user = \Entity\test\user::find_one();
+        $user = \Entity\test\user::find_one(); //
+        ```
+        find_one search inside the first tab found
         
-        
+```php
         $user = new \Entity\test\user($user->id);
 ```
+	this
 ###- *Edit*
 **The** `set()` **function using** `find_one()` **to find the value and return the new value save :**
 ```php
@@ -321,6 +310,9 @@ $config['origami'] = array(
 'encryption_enable' => TRUE,
     'encryption_key' => bin2hex('Origami')
 );
+
+$salt = "jazdijzadioajdzadsqkdnsqkkzadaz"; //key
+        $password = sha1($salt . $rawPassword);
 ```
 
 ### -*Encoding*
