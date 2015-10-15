@@ -54,9 +54,7 @@ public static function checkdate( $value )
 {
 	return ( date('Y-m-d', strtotime( $value ) ) === $value )
 }
-
 ```
-
 ###- **Association**
 
 | Association Schema|       |
@@ -88,6 +86,20 @@ class Field
     const BINARY = 'binary';
     const DEFAULTVALUE_NOW = 'now';
 }
+
+
+public static $fields = array(
+	array('field' => 'birthday', 'type' => 'date', 'Y-m-d H:i:s),
+	array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
+	array('field' => 'email', 'type' => 'email'),
+	array('field' => 'ip', 'type'=> 'ip'),
+	array('field' => 'price', 'type'=> 'float'),
+	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
+	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
+	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
+	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99, 'message' => ''),
+);
+
 ```
 
 ###- *Table*
@@ -343,6 +355,9 @@ $config['origami'] = array(
 'encryption_enable' => TRUE,
     'encryption_key' => bin2hex('Origami')
 );
+
+$salt = "jazdijzadioajdzadsqkdnsqkkzadaz"; //key
+        $password = sha1($salt . $rawPassword);
 ```
 
 ### -*Encoding*
