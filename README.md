@@ -72,34 +72,12 @@ public static $associations = array(
 ###- **Field**
 
 ```php
-class Field
-{
-    const TYPE_INTEGER = 'int';
-    const TYPE_INT = self::TYPE_INTEGER;
-    const TYPE_FLOAT = 'float';
-    const TYPE_DOUBLE = self::TYPE_FLOAT;
-    const TYPE_STRING = 'string';
-    const TYPE_DATE = 'date';
-    const DATEFORMAT = 'Y-m-d H:i:s';
-    const ALLOWNULL = 'allow_null';
-    const ENCRYPT = 'encrypt';
-    const BINARY = 'binary';
-    const DEFAULTVALUE_NOW = 'now';
-}
-
-
 public static $fields = array(
-	array('field' => 'birthday', 'type' => 'date', 'Y-m-d H:i:s),
-	array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
-	array('field' => 'email', 'type' => 'email'),
-	array('field' => 'ip', 'type'=> 'ip'),
-	array('field' => 'price', 'type'=> 'float'),
-	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
-	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
-	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
-	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99, 'message' => ''),
+	array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s),
+	array('field' => 'key', 'type' => 'int' 'encrypt' => TRUE),
+	array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
+	array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
 );
-
 ```
 
 ###- *Table*
