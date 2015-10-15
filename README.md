@@ -90,42 +90,23 @@ public static $fields = array(
 
 ###- *Table*
 ```php
-class Table
-{
 
-    private $name; //table name
-    
-    public function __construct(\Origami\Entity\Manager\Config &$config)
-    {
         $this->setName($config);
-    }
 ```
 **Return the table name :**
 ```php
-   public function getName()
-    {
+
         return $this->name;
-    }
 ```
 **Edit the table name :**
 ```php
-   public function setName(\Origami\Entity\Manager\Config &$config)
-    {
-        $this->name = $config->getTable();
-    }
 
-}
+        $this->name = $config->getTable();
 ```
 ###- *Primary key*
 ```php
-class PrimaryKey
-{
-	private $name;  //Primary key name.
 
-    public function __construct(\Origami\Entity\Manager\Config &$config)
-    {
         $this->setName($config);
-    }
 ```
 **Like the table class you can return the name of your primary key with**`getName` **and 
 edit her with** `setName`
@@ -150,11 +131,10 @@ $user->save();
 **The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
-    public function get()
-    {
         $user = \Entity\test\user::find_one();
+        
+        
         $user = new \Entity\test\user($user->id);
-    }
 ```
 ###- *Edit*
 **The** `set()` **function using** `find_one()` **to find the value and return the new value save :**
