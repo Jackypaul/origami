@@ -146,35 +146,35 @@ return $user->remove();
 # Query Builder
 **Origame use Query Builder Class of code igniter 3 :**
 
-| Query Builder Origami     | 
-|---------------------------------- |
-| `$this->db->group_start()`|
-| `$this->db->or_group_start()`|
-| `$this->db->not_group_start()`|
-| `$this->db->or_not_group_start()`|
-| `$this->db->or_where()`|          
-| `$this->db->where_in()`|
-| `$this->db->or_where_in()`|
-| `$this->db->where_not_in()`|
-| `$this->db->or_where_not_in()`|
-| `$this->db->like()`|
-| `$this->db->or_like()`|
-| `$this->db->not_like()`|
-| `$this->db->or_not_like()`|
-| `$this->db->group_by()`|
-| `$this->db->having()`|
-| `$this->db->or_having()`|
-| `$this->db->order_by()`|
-| `$this->db->limit()`|
-| `$this->db->join()`
-| `$this->db->offset()`    |
-| `$this->db->select()`             |
- | `$this->db->find()`    |
- | `$this->db->find_one()`    |
- | `$this->db->result()`    |
-  | `$this->db->count()`    |
-   | `$this->db->delete()`    |
-
+| Query Builder Origami| 
+|----------------------|
+|`group_start()`|
+| `or_group_start()`|
+| `not_group_start()`|
+| `or_not_group_start()`|
+| `db->or_where()`|          
+| `where_in()`|
+| `or_where_in()`|
+| `where_not_in()`|
+| `or_where_not_in()`|
+| `like()`|
+| `or_like()`|
+| `not_like()`|
+| `or_not_like()`|
+| `group_by()`|
+| `having()`|
+| `or_having()`|
+| `order_by()`|
+| `limit()`|
+| `join()`
+| `offset()`    |
+| `select()`|
+| `find()`    |
+| `find_one()`|
+| `result()`  |
+| `count()` |
+| `delete()`  |
+-------------------------------
 
 **Create an offset in sql :**
 ```php
