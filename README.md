@@ -62,7 +62,7 @@ public static function checkdate( $value )
 | Association Schema|
 |-------------| ----------- |
 | HAS_ONE | HAS_MANY |
-| BELONGS_TO |           |
+| BELONGS_TO |     /      |
 ---------------------------
 
 ```php
