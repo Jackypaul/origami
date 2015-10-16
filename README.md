@@ -344,7 +344,7 @@ database will be in its initial state.**
 # Security
 
 ### -*Encryption*
-**You can encrypt a string with origami but before, you need to activate it in** *application\origami\config\origami.php*
+**You can encrypt a string with origami but before, you need to activate it in** *application/origami/config/origami.php*
 ```php
 $config['origami'] = array(
 'encryption_enable' => TRUE,
