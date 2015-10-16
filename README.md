@@ -330,6 +330,9 @@ $salt = "jazdijzadioajdzadsqkdnsqkkzadaz"; //key
 
 ### -*Encoding*
 ```php
+$config['origami'] = array(
+'binary_enable' => TRUE
+);
 $file->content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
 ```
 
