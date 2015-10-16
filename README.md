@@ -145,7 +145,7 @@ return $user->remove();
 
 | Query Builder Origami| 
 |----------------------|
-|`group_start()`|
+| `group_start()`|
 | `or_group_start()`|
 | `not_group_start()`|
 | `or_not_group_start()`|
@@ -163,14 +163,14 @@ return $user->remove();
 | `or_having()`|
 | `order_by()`|
 | `limit()`|
-| `join()`
-| `offset()`    |
+| `join()`|
+| `offset()`|
 | `select()`|
-| `find()`    |
+| `find()`|
 | `find_one()`|
-| `result()`  |
+| `result()`|
 | `count()` |
-| `delete()`  |
+| `delete()`|
 -------------------------------
 **group_start / or_group_start :**
 ```php
