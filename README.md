@@ -344,14 +344,14 @@ database will be in its initial state.**
 # Secuity
 
 ### -*Encryption*
-**You can encrypt a string with origami but before, you need to activate it in** *origami\config\origami.php*
+**You can encrypt a string with origami but before, you need to activate it in** *application\origami\config\origami.php*
 ```php
 $config['origami'] = array(
 'encryption_enable' => TRUE,
     'encryption_key' => bin2hex('Origami')
 );
 ```
-username est automatique encodé à l'insertion et décodé a l'utilisation
+**username is automatically encoded during the insertion and decoded when you use it**
 ```php
 $table = new \Entity\database\table();
 $table->username = 'Adrien';
@@ -359,13 +359,13 @@ $table->save();
 ```
 
 ### -*Encoding*
-fichier application/config/origami.php
+**File :** *application/origami/config/origami.php*
 ```php
 $config['origami'] = array(
     'binary_enable' => TRUE
 );
 ```
-file_content est blob est automatique décodé en base 64 a l'insertion
+**file_content is a binary file automatically encoded in base 64 during the insertion and decoded when you use it**
 ```php
 $table = new \Entity\database\table();
 $table->file_content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
