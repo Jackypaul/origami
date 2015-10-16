@@ -187,11 +187,12 @@ $table = new \Entity\database\table::
 //SQL :
 SELECT * FROM (`table`) WHERE ( `table1` = 'table1' OR ( `table2` = 'table2') ) AND `table3` = 'table3'
 ```
-**where / or_where : **
+**where / or_where :**
 ```php
 $table = new \Entity\database\table::
-	->where('field !=', $field);
-	->or_where('id >', $id); 
+	->where('field !=', $field)
+	->or_where('id >', $id)
+	->find();
 ```
 ```sql
 WHERE field != 'table1' OR id > 5
@@ -201,6 +202,7 @@ WHERE field != 'table1' OR id > 5
 $field = array('table1', 'table2', 'table3');
 $table = new \Entity\database\table::
 	>where_in('field', $field)
+	->find();
 ```
 ```sql
 WHERE field IN ('table1', 'table2', 'table3')
@@ -210,7 +212,8 @@ WHERE field IN ('table1', 'table2', 'table3')
 ```php
 $field = array('table1', 'table2', 'table3');
 $table = new \Entity\database\table::
-	>or_where_in('field', $field)
+	->or_where_in('field', $field)
+	->find();
 ```
 ```sql
 OR field IN ('table1', 'table2', 'table3')
@@ -220,7 +223,8 @@ OR field IN ('table1', 'table2', 'table3')
 ```php
 $field = array('table1', 'table2', 'table3');
 $table = new \Entity\database\table::
-	>where_not_in('field', $field)
+	->where_not_in('field', $field)
+	->find();
 ```
 ```sql
 WHERE field NOT IN ('table1', 'table2', 'table3')
@@ -229,6 +233,7 @@ WHERE field NOT IN ('table1', 'table2', 'table3')
 ```php
 $table = new \Entity\database\table::
         ->like('field' , 'table1')
+        ->find();
 ```
 ```sql
 WHERE `group_name` LIKE '%table1%'
@@ -238,6 +243,7 @@ WHERE `group_name` LIKE '%table1%'
 $table = new \Entity\database\table::
 	->like('field', 'table1')
 	->or_like('field', 'table2')
+	->find();
 ```
 ```sql
 WHERE `field` LIKE '%table1%' OR  `field` LIKE '%table2%'
@@ -246,6 +252,7 @@ WHERE `field` LIKE '%table1%' OR  `field` LIKE '%table2%'
 ```php
 $table = new \Entity\database\table::
         ->not_like('field' , 'table1')
+        ->find();
 ```
 ```sql
 WHERE `field` NOT LIKE '%grp1%'
@@ -255,6 +262,7 @@ WHERE `field` NOT LIKE '%grp1%'
 $table = new \Entity\database\table::
 	->like('field' , 'table1')
         ->or_not_like('field' , 'table2')
+        ->find();
 ```
 ```sql
 WHERE `field` LIKE '%table1%' OR  `field` NOT LIKE '%table2%'
@@ -263,6 +271,7 @@ WHERE `field` LIKE '%table1%' OR  `field` NOT LIKE '%table2%'
 ```php
 $table = new \Entity\database\table::
 	->group_by('field')
+	->find();
 ```
 ```sql
 GROUP BY field
@@ -271,6 +280,7 @@ GROUP BY field
 ```php
 $table = new \Entity\database\table
 	->having('table_id', 22)
+	->find();
 ```
 ```sql
 HAVING table_id = 22
@@ -280,6 +290,7 @@ HAVING table_id = 22
 $table = new \Entity\database\table
 	->having('table_id', 22)
 	->or_having('table_id', 23)
+	->find();
 ```
 ```sql
 HAVING table_id = 22 OR table_id = 23
@@ -288,6 +299,7 @@ HAVING table_id = 22 OR table_id = 23
 ```php
 $table = new \Entity\database\table
 	->limit(30)
+	->find();
 ```
 ```sql
 LIMIT 30
