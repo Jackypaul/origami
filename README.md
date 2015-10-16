@@ -23,7 +23,7 @@ incompatible type systems in object-oriented programming languages.
 ----------
 
 | Documentation|
-|-------------| ----------- |
+|-------------| ----------- |--------------|-------------|------------|-----------|
 | Schema | testezez | tesqsdqsdt | tesrzrzet | terzerzest | terezrzest|
 | CRUD |
 | Query Builder |
