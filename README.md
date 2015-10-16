@@ -273,7 +273,7 @@ $table = new \Entity\database\table
 	->having('table_id', 22)
 ```
 ```sql
-HAVING table_id = 45
+HAVING table_id = 22
 ```
 **or_having :**
 ```php
@@ -282,51 +282,24 @@ $table = new \Entity\database\table
 	->or_having('table_id', 23)
 ```
 ```sql
+HAVING table_id = 22 OR table_id = 23
 ```
 **limit :**
 ```php
+$table = new \Entity\database\table
+	->limit(30)
 ```
 ```sql
-```
-**join :**
-```php
-```
-```sql
-```
-**offset :**
-```php
-```
-```sql
-```
-**select :**
-```php
-```
-```sql
-```
-**find :**
-```php
-```
-```sql
-```
-**find_one :**
-```php
-```
-```sql
-```
-**result :**
-```php
-```
-```sql
-```
-**count :**
-```php
-```
-```sql
+LIMIT 30
 ```
 **delete :**
 ```php
+$table = new \Entity\database\table
+	->where('id', '5')
+	->delete($table)
 ```
 ```sql
+DELETE FROM table WHERE id = 5
 ```
 
 # Transactions
