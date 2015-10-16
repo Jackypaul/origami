@@ -176,113 +176,158 @@ return $user->remove();
 ```php
 $table = new \Entity\database\table::
         ->group_start()
-        ->where('grp1', 'grp1')
+        ->where('table1', 'table1')
         ->or_group_start()
-        ->where('grp2', 'grp2')
+        ->where('table2', 'table2')
         ->group_end()
-        ->where('grp3', 'grp3')
+        ->where('table3', 'table3')
 	->find();
 ```
 ```sql
 //SQL :
-SELECT * FROM (`table`) WHERE ( `grp1` = 'grp1' OR ( `grp2` = 'grp2') ) AND `grp3` = 'grp3'
+SELECT * FROM (`table`) WHERE ( `table1` = 'table1' OR ( `table2` = 'table2') ) AND `table3` = 'table3'
 ```
 **where / or_where : **
 ```php
 $table = new \Entity\database\table::
-	->where('group_name !=', $group_name);
+	->where('field !=', $field);
 	->or_where('id >', $id); 
 ```
 ```sql
-WHERE group_name != 'grp1' OR id > 5
+WHERE field != 'table1' OR id > 5
 ```
 **where_in :**
 ```php
-$group_name = array('grp1', 'grp2', 'grp3');
+$field = array('table1', 'table2', 'table3');
 $table = new \Entity\database\table::
-	>where_in('group_name', $group_name)
+	>where_in('field', $field)
 ```
 ```sql
-WHERE group_name IN ('grp1', 'grp2', 'grp3')
+WHERE field IN ('table1', 'table2', 'table3')
 ```
 
 **or_where_in :**
 ```php
-$group_name = array('grp1', 'grp2', 'grp3');
+$field = array('table1', 'table2', 'table3');
 $table = new \Entity\database\table::
-	>or_where_in('group_name', $group_name)
+	>or_where_in('field', $field)
 ```
 ```sql
-OR group_name IN ('grp1', 'grp2', 'grp3')
+OR field IN ('table1', 'table2', 'table3')
 ```
 
 **where_not_in :**
 ```php
-$group_name = array('grp1', 'grp2', 'grp3');
+$field = array('table1', 'table2', 'table3');
 $table = new \Entity\database\table::
-	>where_not_in('group_name', $group_name)
+	>where_not_in('field', $field)
 ```
 ```sql
-WHERE group_name NOT IN ('grp1', 'grp2', 'grp3')
+WHERE field NOT IN ('table1', 'table2', 'table3')
 ```
 **like :**
 ```php
 $table = new \Entity\database\table::
-        ->like('group_name' , 'grp1')
+        ->like('field' , 'table1')
 ```
 ```sql
-WHERE `group_name` LIKE '%grp1%' ESCAPE '!'
+WHERE `group_name` LIKE '%table1%'
 ```
 **or_like :**
 ```php
 $table = new \Entity\database\table::
-	->like('group_name', 'grp1')
-	->or_like('group_number', 1)
+	->like('field', 'table1')
+	->or_like('field', 'table2')
 ```
 ```sql
-WHERE `group_name` LIKE '%grp1%' ESCAPE '!' OR  `group_number` LIKE 1 ESCAPE '!'
+WHERE `field` LIKE '%table1%' OR  `field` LIKE '%table2%'
 ```
 **not_like :**
 ```php
 $table = new \Entity\database\table::
-        ->not_like('group_name' , 'grp1')
+        ->not_like('field' , 'table1')
 ```
 ```sql
-WHERE `group_name` NOT LIKE '%grp1%' ESCAPE '!'
+WHERE `field` NOT LIKE '%grp1%'
 ```
 **or_not_like :**
 ```php
 $table = new \Entity\database\table::
-	->like('group_name' , 'grp1')
-        ->or_not_like('group_number' , 1)
+	->like('field' , 'table1')
+        ->or_not_like('field' , 'table2')
 ```
 ```sql
-WHERE `group_name` LIKE '%grp1%' OR  `group_number` NOT LIKE '%1%' ESCAPE '!'
+WHERE `field` LIKE '%table1%' OR  `field` NOT LIKE '%table2%'
 ```
 **group_by :**
 ```php
 $table = new \Entity\database\table::
-	->group_by('group_name')
+	->group_by('field')
 ```
 ```sql
-GROUP BY group_name
+GROUP BY field
 ```
-**Find some models**
+**having**
+```php
+$table = new \Entity\database\table
+	->having('table_id', 22)
+```
+```sql
+HAVING table_id = 45
+```
+**or_having :**
+```php
+$table = new \Entity\database\table
+	->having('table_id', 22)
+	->or_having('table_id', 23)
+```
+```sql
+```
+**limit :**
 ```php
 ```
 ```sql
 ```
-**Count the result found :**
+**join :**
 ```php
 ```
 ```sql
 ```
-**Request error handler :**
+**offset :**
 ```php
 ```
 ```sql
 ```
-
+**select :**
+```php
+```
+```sql
+```
+**find :**
+```php
+```
+```sql
+```
+**find_one :**
+```php
+```
+```sql
+```
+**result :**
+```php
+```
+```sql
+```
+**count :**
+```php
+```
+```sql
+```
+**delete :**
+```php
+```
+```sql
+```
 
 # Transactions
 
