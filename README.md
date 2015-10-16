@@ -115,7 +115,7 @@ $user->save();
 **The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
-$user = \Entity\test\user::find_one(); //
+$user = \Entity\test\user::find_one();
 ```
 **find_one search inside the first tab found**
 ```php
