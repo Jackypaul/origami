@@ -297,6 +297,7 @@ LIMIT 30
 $table = new \Entity\database\table
 	->where('id', '5')
 	->delete($table)
+	->find();
 ```
 ```sql
 DELETE FROM table WHERE id = 5
@@ -310,8 +311,22 @@ database will be in its initial state.**
 
 ```php
   \Origami\DB::get('test')->trans_start();
+   
+   $table1 = new \Entity\database\table1();
+   $table1->username = 'Adrien';
+   $table1->save();
+   
+   $table2 = new \Entity\database\table2();
+   $table2->table1_id = $table1->id;
+   $table2->save();
+  
   \Origami\DB::get('test')->trans_complete();
-  return \Origami\DB::get('test')->trans_status();
+  
+  if (\Origami\DB::get('test')->trans_status()) {
+      // TRUE
+  } else {
+      // FALSE
+  }
 ```
 
 # Secuity
@@ -323,17 +338,25 @@ $config['origami'] = array(
 'encryption_enable' => TRUE,
     'encryption_key' => bin2hex('Origami')
 );
-
-$salt = "jazdijzadioajdzadsqkdnsqkkzadaz"; //key
-        $password = sha1($salt . $rawPassword);
+```
+username est automatique encodé à l'insertion et décodé a l'utilisation
+```php
+$table = new \Entity\database\table();
+$table->username = 'Adrien';
+$table->save();
 ```
 
 ### -*Encoding*
+fichier application/config/origami.php
 ```php
 $config['origami'] = array(
-'binary_enable' => TRUE
+    'binary_enable' => TRUE
 );
-$file->content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
 ```
-
+file_content est blob est automatique décodé en base 64 a l'insertion
+```php
+$table = new \Entity\database\table();
+$table->file_content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
+$table->save();
+```
 --------------------------
