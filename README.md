@@ -58,8 +58,8 @@ public static function checkdate( $value )
 
 | Association Schema|       |
 |-------------| ----------- |
-| HAS_ONE | HAS_MANY |
-| BELONGS_TO |           |
+| HAS_ONE | BELONGS_TO |
+| HAS_MANY |           |
 ---------------------------
 
 ```php
