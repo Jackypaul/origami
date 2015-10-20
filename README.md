@@ -97,7 +97,7 @@ incompatible type systems in object-oriented programming languages.
 ```
 ###- *Primary key*
 ```php
-    class user extends \Origami\Entity {
+    class table extends \Origami\Entity {
     
     	public static $primary_key = 'id';
     }
@@ -122,28 +122,28 @@ incompatible type systems in object-oriented programming languages.
 **The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
-	$user = \Entity\test\user::find_one();
+	$table = \Entity\test\table::where('id', 10)->find_one();
 ```
 **find_one search inside the first tab found**
 ```php
-	$user = new \Entity\test\user(10);
+	$table = new \Entity\test\table(10);
 ```
 ###- *Edit*
 **The** `set()` **function using** `find_one()` **to find the first value :**
 ```php
-	$user = \Entity\database\table::where('username', 'john')->find_one();
+	$table= \Entity\database\table::where('username', 'john')->find_one();
 ```
 **Or if you want make a specification :**
 ```php
-	$user->firstname = 'John';
-	$user->save();
+	$table->firstname = 'Smith';
+	$table->save();
 ```
 
 ###- *Delete*
 **You can delete a value with** `remove()` **:**
 ```php
-	$user = \Entity\test\user::find_one();
-	return $user->remove();
+	$table = \Entity\test\table::where('id', '134')->find_one();
+	return $table->remove();
 ```
 
 # Query Builder
