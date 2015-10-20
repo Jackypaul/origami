@@ -36,26 +36,24 @@ incompatible type systems in object-oriented programming languages.
 
 ```php
 
-class table extends \Origami\Entity {
+    class table extends \Origami\Entity {
 
-public static $validations = array(
-    array('field' => 'id', 'type' => 'present'),
-    array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
-    array('field' => 'email', 'type' => 'email'),
-    array('field' => 'ip', 'type'=> 'ip'),
-    array('field' => 'price', 'type'=> 'float'),
-    array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
-    array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
-    array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
-);
-
+    public static $validations = array(
+        array('field' => 'id', 'type' => 'present'),
+        array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
+        array('field' => 'email', 'type' => 'email'),
+    		array('field' => 'ip', 'type'=> 'ip'),
+    	array('field' => 'price', 'type'=> 'float'),
+    	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
+    	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
+    	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
+	);
 
 //for the callback
-public static function checkdate( $value )
-{
-    return ( date('Y-m-d', strtotime( $value ) ) === $value )
-}
-
+	public static function checkdate( $value )
+	{
+    	return ( date('Y-m-d', strtotime( $value ) ) === $value )
+	}
 }
 ```
 ###- **Association**
@@ -67,11 +65,11 @@ public static function checkdate( $value )
 ---------------------------
 
 ```php
-class table extends \Origami\Entity {
+	class table extends \Origami\Entity {
 
-public static $associations = array(
-    array('association_key' => 'address', 'entity' => '\Entity\test\address', 'type' => 'has_many', 'primary_key'     => 'id', 'foreign_key' => 'user_id')
-  );
+	public static $associations = array(
+    	array('association_key' => 'address', 'entity' => '\Entity\test\address', 'type' => 'has_many', 						  'primary_key'     => 'id', 'foreign_key' => 'user_id')
+	);
 }
 	
 ```
@@ -79,13 +77,14 @@ public static $associations = array(
 ###- **Field**
 
 ```php
-class table extends \Origami\Entity {
-public static $fields = array(
-    array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s'),
-    array('field' => 'key', 'type' => 'int', 'encrypt' => TRUE),
-    array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
-    array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
-  );
+	class table extends \Origami\Entity {
+
+	public static $fields = array(
+    	array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s'),
+    	array('field' => 'key', 'type' => 'int', 'encrypt' => TRUE),
+    	array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
+    	array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
+  	);
 }
 ```
 
@@ -108,43 +107,43 @@ public static $fields = array(
 ###- *Add*
 **first, create new entity :**
 ```php
-$user = new \Entity\test\user();
+	$user = new \Entity\test\user();
 ```
 **And add value :**
 ```php
-$user->firstname = 'John';
-$user->lastname = 'Do';
+	$user->firstname = 'John';
+	$user->lastname = 'Do';
 ```
 **Then save it !**
 ```php
-$user->save();
+	$user->save();
 ```
 ###- *Get*
 **The** `get()` **function allow you to get a request in the database, 
 with Origami you have to use** `find_one()` **:**
 ```php
-$user = \Entity\test\user::find_one();
+	$user = \Entity\test\user::find_one();
 ```
 **find_one search inside the first tab found**
 ```php
-$user = new \Entity\test\user(10);
+	$user = new \Entity\test\user(10);
 ```
 ###- *Edit*
 **The** `set()` **function using** `find_one()` **to find the first value :**
 ```php
-$user = \Entity\database\table::where('username', 'john')->find_one();
+	$user = \Entity\database\table::where('username', 'john')->find_one();
 ```
 **Or if you want make a specification :**
 ```php
-$user->firstname = 'John';
-$user->save();
+	$user->firstname = 'John';
+	$user->save();
 ```
 
 ###- *Delete*
 **You can delete a value with** `remove()` **:**
 ```php
-$user = \Entity\test\user::find_one();
-return $user->remove();
+	$user = \Entity\test\user::find_one();
+	return $user->remove();
 ```
 
 # Query Builder
@@ -181,35 +180,34 @@ return $user->remove();
 -------------------------------
 **group_start / or_group_start :**
 ```php
-$table = new \Entity\database\table::
-        ->group_start()
-        ->where('table1', 'table1')
-        ->or_group_start()
-        ->where('table2', 'table2')
-        ->group_end()
-        ->where('table3', 'table3')
-	->find();
+	$table = \Entity\database\table::
+        	->group_start()
+        	->where('table1', 'table1')
+        	->or_group_start()
+        	->where('table2', 'table2')
+        	->group_end()
+        	->where('table3', 'table3')
+		->find();
 ```
 ```sql
-//SQL :
 SELECT * FROM (`table`) WHERE ( `table1` = 'table1' OR ( `table2` = 'table2') ) AND `table3` = 'table3'
 ```
 **where / or_where :**
 ```php
-$table = new \Entity\database\table::
-	->where('field !=', $field)
-	->or_where('id >', $id)
-	->find();
+	$table = \Entity\database\table::
+		->where('field !=', $field)
+		->or_where('id >', $id)
+		->find();
 ```
 ```sql
 WHERE field != 'table1' OR id > 5
 ```
 **where_in :**
 ```php
-$field = array('table1', 'table2', 'table3');
-$table = new \Entity\database\table::
-	>where_in('field', $field)
-	->find();
+	$field = array('table1', 'table2', 'table3');
+	$table = \Entity\database\table::
+		>where_in('field', $field)
+		->find();
 ```
 ```sql
 WHERE field IN ('table1', 'table2', 'table3')
@@ -217,10 +215,10 @@ WHERE field IN ('table1', 'table2', 'table3')
 
 **or_where_in :**
 ```php
-$field = array('table1', 'table2', 'table3');
-$table = new \Entity\database\table::
-	->or_where_in('field', $field)
-	->find();
+	$field = array('table1', 'table2', 'table3');
+	$table = \Entity\database\table::
+		->or_where_in('field', $field)
+		->find();
 ```
 ```sql
 OR field IN ('table1', 'table2', 'table3')
@@ -228,46 +226,46 @@ OR field IN ('table1', 'table2', 'table3')
 
 **where_not_in :**
 ```php
-$field = array('table1', 'table2', 'table3');
-$table = new \Entity\database\table::
-	->where_not_in('field', $field)
-	->find();
+	$field = array('table1', 'table2', 'table3');
+	$table = \Entity\database\table::
+		->where_not_in('field', $field)
+		->find();
 ```
 ```sql
 WHERE field NOT IN ('table1', 'table2', 'table3')
 ```
 **like :**
 ```php
-$table = new \Entity\database\table::
-        ->like('field' , 'table1')
-        ->find();
+	$table = \Entity\database\table::
+        	->like('field' , 'table1')
+        	->find();
 ```
 ```sql
 WHERE `group_name` LIKE '%table1%'
 ```
 **or_like :**
 ```php
-$table = new \Entity\database\table::
-	->like('field', 'table1')
-	->or_like('field', 'table2')
-	->find();
+	$table = new \Entity\database\table::
+		->like('field', 'table1')
+		->or_like('field', 'table2')
+		->find();
 ```
 ```sql
 WHERE `field` LIKE '%table1%' OR  `field` LIKE '%table2%'
 ```
 **not_like :**
 ```php
-$table = new \Entity\database\table::
-        ->not_like('field' , 'table1')
-        ->find();
+	$table = new \Entity\database\table::
+        	->not_like('field' , 'table1')
+        	->find();
 ```
 ```sql
 WHERE `field` NOT LIKE '%grp1%'
 ```
 **or_not_like :**
 ```php
-$table = new \Entity\database\table::
-	->like('field' , 'table1')
+	$table = \Entity\database\table::
+		->like('field' , 'table1')
         ->or_not_like('field' , 'table2')
         ->find();
 ```
@@ -276,47 +274,47 @@ WHERE `field` LIKE '%table1%' OR  `field` NOT LIKE '%table2%'
 ```
 **group_by :**
 ```php
-$table = new \Entity\database\table::
-	->group_by('field')
-	->find();
+	$table = \Entity\database\table::
+		->group_by('field')
+		->find();
 ```
 ```sql
 GROUP BY field
 ```
 **having**
 ```php
-$table = new \Entity\database\table
-	->having('table_id', 22)
-	->find();
+	$table = \Entity\database\table
+		->having('table_id', 22)
+		->find();
 ```
 ```sql
 HAVING table_id = 22
 ```
 **or_having :**
 ```php
-$table = new \Entity\database\table
-	->having('table_id', 22)
-	->or_having('table_id', 23)
-	->find();
+	$table = \Entity\database\table
+		->having('table_id', 22)
+		->or_having('table_id', 23)
+		->find();
 ```
 ```sql
 HAVING table_id = 22 OR table_id = 23
 ```
 **limit :**
 ```php
-$table = new \Entity\database\table
-	->limit(30)
-	->find();
+	$table = \Entity\database\table
+		->limit(30)
+		->find();
 ```
 ```sql
 LIMIT 30
 ```
 **delete :**
 ```php
-$table = new \Entity\database\table
-	->where('id', '5')
-	->delete($table)
-	->find();
+	$table = \Entity\database\table
+		->where('id', '5')
+		->delete($table)
+		->find();
 ```
 ```sql
 DELETE FROM table WHERE id = 5
@@ -329,11 +327,10 @@ If at least one statement fails, all the changes will be rolled back and
 database will be in its initial state.**
 
 ```php
-  \Origami\DB::get('test')->trans_start();
-   
-   $table1 = new \Entity\database\table1();
-   $table1->username = 'Adrien';
-   $table1->save();
+	\Origami\DB::get('test')->trans_start();
+   	$table1 = new \Entity\database\table1();
+   	$table1->username = 'Adrien';
+   	$table1->save();
    
    $table2 = new \Entity\database\table2();
    $table2->table1_id = $table1->id;
@@ -353,29 +350,29 @@ database will be in its initial state.**
 ### -*Encryption*
 **You can encrypt a string with origami but before, you need to activate it in** *application/origami/config/origami.php*
 ```php
-$config['origami'] = array(
-'encryption_enable' => TRUE,
+	$config['origami'] = array(
+	'encryption_enable' => TRUE,
     'encryption_key' => bin2hex('Origami')
 );
 ```
 **username is automatically encoded during the insertion and decoded when you use it**
 ```php
-$table = new \Entity\database\table();
-$table->username = 'Adrien';
-$table->save();
+	$table = new \Entity\database\table();
+	$table->username = 'Adrien';
+	$table->save();
 ```
 
 ### -*Encoding*
 **File :** *application/origami/config/origami.php*
 ```php
-$config['origami'] = array(
-    'binary_enable' => TRUE
+	$config['origami'] = array(
+    	'binary_enable' => TRUE
 );
 ```
 **file_content is a binary file automatically encoded in base 64 during the insertion and decoded when you use it**
 ```php
-$table = new \Entity\database\table();
-$table->file_content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
-$table->save();
+	$table = new \Entity\database\table();
+	$table->file_content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
+	$table->save();
 ```
 --------------------------
