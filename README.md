@@ -90,9 +90,9 @@ incompatible type systems in object-oriented programming languages.
 
 ###- *Table*
 ```php
-    class table extends \Origami\Entity {
-
-	public static $table = 'database';
+    class table extends \Origami\Entity {	
+    	
+    	public static $table = 'database';
     }
 ```
 ###- *Primary key*
