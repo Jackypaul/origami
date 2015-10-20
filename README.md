@@ -35,23 +35,27 @@ incompatible type systems in object-oriented programming languages.
 
 
 ```php
+
+class table extends \Origami\Entity {
+
 public static $validations = array(
-	array('field' => 'id', 'type' => 'present'),
-	array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
-	array('field' => 'email', 'type' => 'email'),
-	array('field' => 'ip', 'type'=> 'ip'),
-	array('field' => 'price', 'type'=> 'float'),
-	array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
-	array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
-	array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
-	array('field' => '', 'type'=> 'length', 'min' => 1, 'max' => 99, 'message' => ''),
+    array('field' => 'id', 'type' => 'present'),
+    array('field' => 'age', 'type' => 'int', 'message' => "Your age is required"),
+    array('field' => 'email', 'type' => 'email'),
+    array('field' => 'ip', 'type'=> 'ip'),
+    array('field' => 'price', 'type'=> 'float'),
+    array('field' => 'status', 'type'=> 'inclusion', list => [0, 1]),
+    array('field' => 'type', 'type'=> 'format', 'matcher' => '^(man|woman)$'),
+    array('field' => 'birthday', 'type'=> 'callback' => 'self::checkdate'),
 );
 
 
 //for the callback
 public static function checkdate( $value )
 {
-	return ( date('Y-m-d', strtotime( $value ) ) === $value )
+    return ( date('Y-m-d', strtotime( $value ) ) === $value )
+}
+
 }
 ```
 ###- **Association**
@@ -63,38 +67,42 @@ public static function checkdate( $value )
 ---------------------------
 
 ```php
+class table extends \Origami\Entity {
+
 public static $associations = array(
-		array('association_key' => 'address', 'entity' => '\Entity\test\address', 'type' => 'has_many', 'primary_key' => 'id', 'foreign_key' => 'user_id')
-	);
+    array('association_key' => 'address', 'entity' => '\Entity\test\address', 'type' => 'has_many', 'primary_key'     => 'id', 'foreign_key' => 'user_id')
+  );
+}
+	
 ```
 
 ###- **Field**
 
 ```php
+class table extends \Origami\Entity {
 public static $fields = array(
-	array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s'),
-	array('field' => 'key', 'type' => 'int', 'encrypt' => TRUE),
-	array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
-	array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
-);
+    array('field' => 'birthday', 'type' => 'date', 'date_format' => 'Y-m-d H:i:s'),
+    array('field' => 'key', 'type' => 'int', 'encrypt' => TRUE),
+    array('field' => 'street', 'type' => 'string', 'allow_null' => TRUE),
+    array('field' => 'content', 'type' => 'string', 'binary' => TRUE)
+  );
+}
 ```
 
 ###- *Table*
-**Return the table name :**
 ```php
-return $this->name;
-```
-**Edit the table name :**
-```php
-$this->name = $config->getTable();
+    class table extends \Origami\Entity {
+
+	public static $table = 'database';
+    }
 ```
 ###- *Primary key*
 ```php
-$this->setName($config);
+    class user extends \Origami\Entity {
+    
+    	public static $primary_key = 'id';
+    }
 ```
-**Like the table class you can return the name of your primary key with**`getName` **and 
-edit her with** `setName`
-
 # CRUD
 
 ###- *Add*
