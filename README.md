@@ -119,18 +119,17 @@ $user = \Entity\test\user::find_one();
 ```
 **find_one search inside the first tab found**
 ```php
-$user = new \Entity\test\user($user->id);
+$user = new \Entity\test\user(10);
 ```
 ###- *Edit*
 **The** `set()` **function using** `find_one()` **to find the first value :**
 ```php
-$user = \Entity\test\user::find_one();
+$user = \Entity\database\table::where('username', 'john')->find_one();
 ```
 **Or if you want make a specification :**
 ```php
-$user = new \Entity\test\user($user->name);
 $user->firstname = 'John';
-return $user->save();
+$user->save();
 ```
 
 ###- *Delete*
