@@ -255,9 +255,9 @@ WHERE `field` LIKE '%table1%' OR  `field` LIKE '%table2%'
 ```
 **not_like :**
 ```php
-	$table = new \Entity\database\table::
-        	->not_like('field' , 'table1')
-        	->find();
+$table = new \Entity\database\table::
+	->not_like('field' , 'table1')
+    ->find();
 ```
 ```sql
 WHERE `field` NOT LIKE '%grp1%'
@@ -350,29 +350,29 @@ database will be in its initial state.**
 ### -*Encryption*
 **You can encrypt a string with origami but before, you need to activate it in** *application/origami/config/origami.php*
 ```php
-	$config['origami'] = array(
+$config['origami'] = array(
 	'encryption_enable' => TRUE,
-    'encryption_key' => bin2hex('Origami')
+	'encryption_key' => bin2hex('Origami')
 );
 ```
 **username is automatically encoded during the insertion and decoded when you use it**
 ```php
-	$table = new \Entity\database\table();
-	$table->username = 'Adrien';
-	$table->save();
+$table = new \Entity\database\table();
+$table->username = 'Adrien';
+$table->save();
 ```
 
 ### -*Encoding*
 **File :** *application/origami/config/origami.php*
 ```php
-	$config['origami'] = array(
-    	'binary_enable' => TRUE
+$config['origami'] = array(
+	'binary_enable' => TRUE
 );
 ```
 **file_content is a binary file automatically encoded in base 64 during the insertion and decoded when you use it**
 ```php
-	$table = new \Entity\database\table();
-	$table->file_content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
-	$table->save();
+$table = new \Entity\database\table();
+$table->file_content = base64_encode(file_get_contents('https://www.google.fr/images/srpr/logo11w.png'));
+$table->save();
 ```
 --------------------------
